@@ -10,8 +10,8 @@ You can automatically execute job registrationing schedule using [quartz schedul
 
 ![image](img/schedule_quartz.png)
 
-Create a calendar --------------1.Go to calendar page from right menu at
-top page.
+## Create a calendar
+1.Go to calendar page from right menu at top page.
 
 ![image](img/goto-calendar.png)
 
