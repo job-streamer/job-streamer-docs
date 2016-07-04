@@ -26,7 +26,7 @@
             <div class="container">
                <div class="ui stackable divided relaxed grid">
                   <div class="sixteen wide column">
-                     <p>Copyright © 2015-2016 kawasima &amp; contributors.</p>
+                     <p>Copyright @ 2015-2016 kawasima &amp; contributors.</p>
                      <p>Released under the EPL license.</p>
                   </div>
                </div>

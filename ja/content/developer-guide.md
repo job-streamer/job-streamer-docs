@@ -17,8 +17,7 @@ status=publish
 
 ## 接続の方針
 
--   Agentの応答性を上げるため、AgentからControl
-    busへはWebSocket接続する。
+-   Agentの応答性を上げるため、AgentからControl-busへはWebSocket接続する。
 -   障害時の動作を考慮し、WebSocketではデータの転送は行わず、通知のみとする。
 -   Agentの死活や性能モニタリングは、WebSocketを通じて行われる。
 -   Agentはノーコンフィギュレーションにするため、Control-busのアドレスを自動的に見つける。

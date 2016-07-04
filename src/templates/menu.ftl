@@ -26,6 +26,23 @@
       </div>
    </div>
    <div class="item">
+      <div class="header">Components</div>
+      <div class="menu">
+         <a class="item" href="${content.rootpath}control-bus.html">
+         Control bus
+         </a>
+         <a class="item" href="${content.rootpath}agent.html">
+         Agent
+         </a>
+         <a class="item" href="${content.rootpath}console.html">
+         Management console
+         </a>
+         <a class="item" href="${content.rootpath}notificator.html">
+         Notificator
+         </a>
+      </div>
+   </div>
+   <div class="item">
       <div class=" header">For Developper</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
@@ -33,23 +50,6 @@
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
          Developer guide
-         </a>
-      </div>
-   </div>
-   <div class="item">
-      <div class="header">Components</div>
-      <div class="menu">
-         <a class="item" href="https://github.com/job-streamer/job-streamer-control-bus">
-         Control bus
-         </a>
-         <a class="item" href="https://github.com/job-streamer/job-streamer-agent">
-         Agent
-         </a>
-         <a class="item" href="https://github.com/job-streamer/job-streamer-console">
-         Management console
-         </a>
-         <a class="item" href="https://github.com/job-streamer/job-streamer-notificator">
-         Notificator
          </a>
       </div>
    </div>
