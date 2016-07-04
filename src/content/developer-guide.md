@@ -6,12 +6,12 @@ status=publish
 
 ## Format policy
 
--   All of exchange data is done using [EDN Format](https://github.com/edn-format/edn) .（In comparison with the JSON, there is an advantage that it is possible to have a type of `Date` and `UUID` . ）
+-   All of exchange data is done using [EDN Format](https://github.com/edn-format/edn).(In comparison with the JSON, there is an advantage that it is possible to have a type of `Date` and `UUID` .)
 -   Map key in EDN is keyword with entity's name-space. (Easy to understand when see only data.)
 
 ## Interface policy
 
--   Both Agent and Control bus use REST API as interface.（for enable tool-development Other than Console）
+-   Both Agent and Control bus use REST API as interface.(for enable tool-development Other than Console)
 -   Must call from Control bus to Agent API.Don't call reverse.
 
 ## connection policy

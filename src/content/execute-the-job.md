@@ -20,13 +20,12 @@ If parameter is needed, Jobstreamer automatically analize and make input form,th
 
 ![image](img/restart_dialog.png)
 
+## about executtion log
+
+You can confirm the execution log in console.
+
+![image](img/execute_log.png)
+
 ## scheduled execution
 
-You can automatically execute job registrationing schedule using [quartz scheduler](http://quartz-scheduler.org/api/2.2.0/org/quartz/CronExpression.html)
-.
-
-![image](img/schedule_quartz.png)
-
-## Set calendar
-
-You can control job execution setting calendar with quartz scheduler.
+Please refer [schedule job](./schedule-job.html)
