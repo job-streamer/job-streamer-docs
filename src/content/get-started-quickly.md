@@ -47,6 +47,7 @@ status=publish
 
 2. Run the notificator:
 
-       % bin/notificator
+       % bin/notificator {edn file path}
 
 > default port 2121
+> please refer [notificator config](./notificator-config.html) about edn file.

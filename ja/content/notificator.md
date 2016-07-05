@@ -9,4 +9,4 @@ notificatorはcontrol-busから命令を受け取り、任意のAPIを呼び出�
 
 #notificatorでできること
 notificatorを用いると「あるジョブが終わったときメールを送信したい」などのニーズに応えることが可能です。
-詳細は[notificatorの設定](./notificator-config)を参照してください。
+詳細は[notificatorの設定](./notificator-config.html)を参照してください。

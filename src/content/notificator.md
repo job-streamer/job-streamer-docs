@@ -9,4 +9,4 @@ Notificator is the server that receive order from control-bus and call some API.
 
 #What's Notificator can do?
 Notificator meet the demands that "when a job finish,wanna send a mail".
-details are[notificator config](./notificator-config).
+details are [notificator config](./notificator-config.html).
