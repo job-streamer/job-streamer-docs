@@ -6,7 +6,7 @@ status=publish
 # Scheduling
 
 ## Scheduled execution
-You can automatically execute job registrationing schedule using [quartz scheduler](http://www.quartz-scheduler.org/documentation/).
+You can automatically execute job registrationing schedule using [quartz scheduler](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html).
 
 ![image](img/schedule_quartz.png)
 

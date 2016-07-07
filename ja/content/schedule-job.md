@@ -7,7 +7,7 @@ status=publish
 
 ## スケジュールで自動実行する
 
-[quartz](http://www.quartz-scheduler.org/documentation/)形式でスケジュールを登録することで、ジョブを自動実行できます。
+[cron expressions](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)形式でスケジュールを登録することで、ジョブを自動実行できます。
 
 ![image](_images/schedule_quartz.png)
 
@@ -26,4 +26,4 @@ status=publish
 ![image](img/goto-calendar.png)
 
 ## カレンダーを設定して休日はジョブの実行を抑止する
-quartz形式とともにカレンダーも設定することでカレンダーに休日として登録されている日はジョブの実行を抑止することができます。
+cron expressionsとともにカレンダーも設定することでカレンダーに休日として登録されている日はジョブの実行を抑止することができます。

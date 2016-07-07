@@ -15,3 +15,6 @@ Management consoleはControl busのフロントエンドで、Control busの提�
 - ジョブのインポート/エクスポート
 
 などが行えます。
+
+## GitHub
+https://github.com/job-streamer/job-streamer-console
