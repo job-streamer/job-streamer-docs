@@ -9,7 +9,7 @@ status=publish
 
 [cron expressions](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)形式でスケジュールを登録することで、ジョブを自動実行できます。
 
-![image](_images/schedule_quartz.png)
+![image](img/schedule_quartz.png)
 
 ## カレンダーの登録方法
 

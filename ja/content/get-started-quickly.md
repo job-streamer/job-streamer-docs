@@ -1,3 +1,8 @@
+type=page
+status=publish
+~~~~~~
+
+
 # クイックスタート
 
 ## Control bus

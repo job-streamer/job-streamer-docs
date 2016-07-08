@@ -1,4 +1,8 @@
-# 開発者向け
+type=page
+status=publish
+~~~~~~
+
+# REPLコマンド集
 
 ## Control bus
 

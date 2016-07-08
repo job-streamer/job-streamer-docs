@@ -1,3 +1,7 @@
+type=page
+status=publish
+~~~~~~
+
 ## ジョブの設定
 
 ## ジョブの同時起動制御

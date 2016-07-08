@@ -2,7 +2,6 @@ type=page
 status=publish
 ~~~~~~
 
-
 # JobStreamer ディベロッパーガイド
 
 ## フォーマットの方針

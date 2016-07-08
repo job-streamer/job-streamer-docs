@@ -1,3 +1,7 @@
+type=page
+status=publish
+~~~~~~
+
 # 通知サーバの設定
 
 ednファイルを用いてルールの設定を行います。

@@ -1,3 +1,7 @@
+type=page
+status=publish
+~~~~~~
+
 # バッチ部品のデプロイ
 
 ## デプロイ手法
