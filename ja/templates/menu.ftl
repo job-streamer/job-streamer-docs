@@ -3,30 +3,30 @@
    Getting Started
    </a>
    <div class="item">
-      <div class="header">�K�C�h</div>
+      <div class="header">ガイド</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}deploy-batch-components.html">
-         �o�b�`�R���|�[�l���g�̃f�v���C
+         バッチコンポーネントのデプロイ
          </a>
          <a class="item" href="${content.rootpath}create-a-job.html">
-         �W���u�̍쐬
+         ジョブの作成
          </a>
          <a class="item" href="${content.rootpath}execute-the-job.html">
-         �W���u�̎蓮���s
+         ジョブの手動実行
          </a>
          <a class="item" href="${content.rootpath}schedule-job.html">
-         �W���u�̃X�P�W���[�����s
+         ジョブのスケジュール実行
          </a>
          <a class="item" href="${content.rootpath}job-config.html">
-         �W���u�̐ݒ�
+         ジョブの設定
          </a>
          <a class="item" href="${content.rootpath}notificator-config.html">
-         Notificator�̐ݒ�
+         Notificatorの設定
          </a>
       </div>
    </div>
    <div class="item">
-      <div class="header">�R���|�[�l���g</div>
+      <div class="header">コンポーネント</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}control-bus.html">
          Control bus
@@ -43,13 +43,13 @@
       </div>
    </div>
    <div class="item">
-      <div class=" header">�J���Ҍ������</div>
+      <div class=" header">開発者向け情報</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         REPL�R�}���h�W
+         REPLコマンド集
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
-         �f�B�x���b�p�[�K�C�h
+         ディベロッパーガイド
          </a>
       </div>
    </div>
