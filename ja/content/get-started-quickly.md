@@ -20,6 +20,7 @@ status=publish
     % bin/control_bus
 
 4. 環境設定
+
 |    環境変数名      | 　　説明 　　 | デフォルト値    |
 |:----------------:|:-----------:|:------------:|
 | CONTROL_BUS_PORT |ポート番号      |     45102   |
@@ -38,6 +39,7 @@ status=publish
     % bin/console
 
 3. 環境設定
+
 |    環境変数名      | 　　説明 　　 | デフォルト値    |
 |:----------------:|:-----------:|:------------:|
 | CONSOLE_PORT     |ポート番号      |     3000   |
@@ -52,6 +54,7 @@ status=publish
     % bin/agent
 
 3. 環境設定
+
 |    環境変数名      | 　　説明 　　 | デフォルト値    |
 |:----------------:|:-----------:|:------------:|
 | AGENT_PORT       |ポート番号      |     4510   |
@@ -68,11 +71,13 @@ status=publish
     % bin/notificator {ednファイルのパス} (hbsファイルのあるディレクトリのパス)
 
 3. 環境設定
+
 |    環境変数名      | 　　説明 　　 | デフォルト値    |
 |:----------------:|:-----------:|:------------:|
 | NOTIFICATOR_PORT |ポート番号      |     2121   |
 | NOTIFICATOR_RULES|ルール(edn)ファイルのパス| （第一引数） |
 | NOTIFICATOR_TEMPLATES_PLEFIX|テンプレート(hbs)のあるディレクトリのパス|templates|
+
 > edn/hbsファイルについては[notificator config](./notificator-config.html)を参照してください。
 
 ## バッチ部品のデプロイ

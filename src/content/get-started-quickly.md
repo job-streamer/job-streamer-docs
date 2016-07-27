@@ -20,6 +20,7 @@ status=publish
         % bin/control_bus
 
 4. Optional embiron setting
+
 |Environment variable|Description|Default       |
 |:----------------:|:-----------:|:------------:|
 | CONTROL_BUS_PORT |Port Number  |     45102    |
@@ -36,6 +37,7 @@ status=publish
        % bin/console
 
 3. Optional embiron setting
+
 |Environment variable|Description|Default       |
 |:----------------:|:-----------:|:------------:|
 | CONSOLE_PORT     |Port Number  |     3000     |
@@ -50,6 +52,7 @@ status=publish
        % bin/agent
 
 3. Optional embiron setting
+
 |Environment variable|Description|Default       |
 |:----------------:|:-----------:|:------------:|
 | AGENT_PORT       |Port Number  |     4510     |
@@ -66,11 +69,13 @@ status=publish
        % bin/notificator {edn file path} (hbs dir path)
 
 3. Optional embiron setting
+
 |Environment variable|Description|Default       |
 |:----------------:|:-----------:|:------------:|
 | NOTIFICATOR_PORT |Port Number  |     2121   |
 | NOTIFICATOR_RULES|edn file path| [first arg] |
 | NOTIFICATOR_TEMPLATES_PLEFIX|template dir path|"templates"|
+
 > please refer [notificator config](./notificator-config.html) about edn and hbs file.
 
 ## batch component deployment

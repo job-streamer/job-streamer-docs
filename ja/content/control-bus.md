@@ -10,8 +10,6 @@ control-busはAPI呼び出しを制御しています。
 すべてのAPI呼び出しはcontrol-busを介して行います。
 なので直接console->agentといったAPIアクセスが発生することはありません。
 
-![image](img/scheduling.png)
-
 ## Control-busで出来ること
 
 * バッチ部品のデプロイ
