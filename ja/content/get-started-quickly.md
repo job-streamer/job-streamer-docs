@@ -19,7 +19,14 @@ status=publish
 
     % bin/control_bus
 
-> デフォルトポート45102で起動します。
+4. 環境設定
+|    環境変数名      | 　　説明 　　 | デフォルト値    |
+|:----------------:|:-----------:|:------------:|
+| CONTROL_BUS_PORT |ポート番号      |     45102   |
+|DISCOVERY_PORT|実行エージェントからの接続要求をLISTENするためのポート|45100|
+|DISCOVERY_ADDRESS|実行エージェントからの接続要求をLISTENするためのマルチキャストIP|(OPTION)|
+|NOTIFICATOR_URL|通知サーバのURL|http://localhost:2121|
+
 
 ## Management console
 
@@ -30,7 +37,11 @@ status=publish
 
     % bin/console
 
-> デフォルトポート8080で起動します。
+3. 環境設定
+|    環境変数名      | 　　説明 　　 | デフォルト値    |
+|:----------------:|:-----------:|:------------:|
+| CONSOLE_PORT     |ポート番号      |     3000   |
+| CONTROL_BUS_URL  |Control-busのurl | http://localhost:45102     |
 
 ## Agent
 
@@ -40,7 +51,13 @@ status=publish
 
     % bin/agent
 
-> デフォルトポート4510で起動します。
+3. 環境設定
+|    環境変数名      | 　　説明 　　 | デフォルト値    |
+|:----------------:|:-----------:|:------------:|
+| AGENT_PORT       |ポート番号      |     4510   |
+| INSTANCE_NAME    | インスタンス名  |  (OPTION)  |
+|DISCOVERY_PORT|接続要求をブロードキャスト(またはマルチキャスト)するためのポート|45100|
+|DISCOVERY_ADDRESS|接続要求をマルチキャストするためのIPアドレス。同一ネットワーク内に複数のコントロールバスを起動する場合はこれを指定して下さい。|(OPTION)|
 
 ## Notificator
 
@@ -48,7 +65,15 @@ status=publish
 
 2. notificatorを起動:
 
-    % bin/notificator {ednファイルのパス}
+    % bin/notificator {ednファイルのパス} (hbsファイルのあるディレクトリのパス)
 
-> デフォルトポート2121で起動します。
-> ednファイルについては[notificator config](./notificator-config.html)を参照してください。
+3. 環境設定
+|    環境変数名      | 　　説明 　　 | デフォルト値    |
+|:----------------:|:-----------:|:------------:|
+| NOTIFICATOR_PORT |ポート番号      |     2121   |
+| NOTIFICATOR_RULES|ルール(edn)ファイルのパス| （第一引数） |
+| NOTIFICATOR_TEMPLATES_PLEFIX|テンプレート(hbs)のあるディレクトリのパス|templates|
+> edn/hbsファイルについては[notificator config](./notificator-config.html)を参照してください。
+
+## バッチ部品のデプロイ
+[バッチ部品のデプロイ](./deploy-batch-components.html)を参照してください。

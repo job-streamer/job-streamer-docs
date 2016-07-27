@@ -3,7 +3,7 @@ status=publish
 ~~~~~~
 
 
-# Quickly
+# Getting Started
 
 ##Control bus
 
@@ -19,7 +19,13 @@ status=publish
 
         % bin/control_bus
 
-> default port 45102
+4. Optional embiron setting
+|Environment variable|Description|Default       |
+|:----------------:|:-----------:|:------------:|
+| CONTROL_BUS_PORT |Port Number  |     45102    |
+|DISCOVERY_PORT|listen port from Agent|45100|
+|DISCOVERY_ADDRESS|Multicast IP to listen from Agent|(OPTION)|
+|NOTIFICATOR_URL|Notificator's url|http://localhost:2121|
 
 ## Management console
 
@@ -29,7 +35,11 @@ status=publish
 
        % bin/console
 
-> default port 8080
+3. Optional embiron setting
+|Environment variable|Description|Default       |
+|:----------------:|:-----------:|:------------:|
+| CONSOLE_PORT     |Port Number  |     3000     |
+| CONTROL_BUS_URL  |Control-bus's url |    http://localhost:45102     |
 
 ## Agent
 
@@ -39,7 +49,13 @@ status=publish
 
        % bin/agent
 
-> default port 4510
+3. Optional embiron setting
+|Environment variable|Description|Default       |
+|:----------------:|:-----------:|:------------:|
+| AGENT_PORT       |Port Number  |     4510     |
+| INSTANCE_NAME    |instance name| (OPTION) |
+|DISCOVERY_PORT|Port for Multicast|45100|
+|DISCOVERY_ADDRESS|IP address for Multicast<br>If you run more than 2 control-bus,youmust set this. |(OPTION)|
 
 ## Notificator
 
@@ -47,7 +63,15 @@ status=publish
 
 2. Run the notificator:
 
-       % bin/notificator {edn file path}
+       % bin/notificator {edn file path} (hbs dir path)
 
-> default port 2121
-> please refer [notificator config](./notificator-config.html) about edn file.
+3. Optional embiron setting
+|Environment variable|Description|Default       |
+|:----------------:|:-----------:|:------------:|
+| NOTIFICATOR_PORT |Port Number  |     2121   |
+| NOTIFICATOR_RULES|edn file path| [first arg] |
+| NOTIFICATOR_TEMPLATES_PLEFIX|template dir path|"templates"|
+> please refer [notificator config](./notificator-config.html) about edn and hbs file.
+
+## batch component deployment
+please refer to [deploy batch components](./deploy-batch-components.html).
