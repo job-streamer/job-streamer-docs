@@ -4,7 +4,7 @@
     <div class="ui one column centered grid">
       <div class="column">
         <h1>JobStreamer</h1>
-        <img src="img/overview.png"/>
+        <img src="img/overview.png" class="original-size"/>
       </div>
     </div>
   </header>
@@ -20,5 +20,4 @@
         </p>
     <div>
   </section>
-
 </@layout.myLayout>

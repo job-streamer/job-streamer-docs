@@ -14,7 +14,7 @@
       <#include "menu.ftl">
       <div class="pusher">
          <div class="ui fixed inverted teal menu">
-            <div class="title item"><b>Job Streamer</b></div>
+            <div class="title item"><a href="./index.html"><b>Job Streamer</b></a></div>
             <a class="view-ui item" onClick="viewSidebar()">
               Menu
             </a>
