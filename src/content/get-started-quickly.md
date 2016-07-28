@@ -7,13 +7,13 @@ status=publish
 
 ##Control bus
 
-1.  Get datomic-free:
+1.  Get [datomic-free](https://my.datomic.com/downloads/free):
 
         % unzip datomic-free-0.9.5130.zip
         % cd datomic-free-0.9.5130
         % bin/transactor config/samples/free-transactor-template.properties
 
-2.  Download the latest version [control bus](https://github.com/job-streamer/job-streamer-control-bus/releases):
+2.  Download the latest version [control bus](https://github.com/job-streamer/job-streamer-control-bus/releases/latest):
 
 3. Run the contorl bus:
 
@@ -30,7 +30,7 @@ status=publish
 
 ## Management console
 
-1.  Download the latest version [management console](https://github.com/job-streamer/job-streamer-console/releases):
+1.  Download the latest version [management console](https://github.com/job-streamer/job-streamer-console/releases/latest):
 
 2. Run the management console:
 
@@ -45,7 +45,7 @@ status=publish
 
 ## Agent
 
-1.  Download the latest version [agent](https://github.com/job-streamer/job-streamer-agent/releases):
+1.  Download the latest version [agent](https://github.com/job-streamer/job-streamer-agent/releases/latest):
 
 2. Run the agent:
 
@@ -56,13 +56,13 @@ status=publish
 |Environment variable|Description|Default       |
 |:----------------:|:-----------:|:------------:|
 | AGENT_PORT       |Port Number  |     4510     |
-| INSTANCE_NAME    |instance name| (OPTION) |
+| INSTANCE_NAME    |instance name<br>If you Don't want to change instance id every time Agent wakes up,you must set this.| (OPTION) |
 |DISCOVERY_PORT|Port for Multicast|45100|
-|DISCOVERY_ADDRESS|IP address for Multicast<br>If you run more than 2 control-bus,youmust set this. |(OPTION)|
+|DISCOVERY_ADDRESS|IP address for Multicast<br>If you run more than 2 control-bus,you must set this. |(OPTION)|
 
 ## Notificator
 
-1.  Download the latest version [notificator](https://github.com/job-streamer/job-streamer-notificator/releases):
+1.  Download the latest version [notificator](https://github.com/job-streamer/job-streamer-notificator/releases/latest):
 
 2. Run the notificator:
 

@@ -7,7 +7,7 @@ status=publish
 
 ## Control bus
 
-1.  datomic-freeを取得:
+1.  [datomic-free](https://my.datomic.com/downloads/free)を取得:
 
         % unzip datomic-free-0.9.5130.zip
         % cd datomic-free-0.9.5130
