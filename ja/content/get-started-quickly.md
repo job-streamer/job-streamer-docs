@@ -13,7 +13,7 @@ status=publish
         % cd datomic-free-0.9.5130
         % bin/transactor config/samples/free-transactor-template.properties
 
-2.  最新版 [control-bus](https://github.com/job-streamer/job-streamer-control-bus/releases)を取得:
+2.  最新版 [control-bus](https://github.com/job-streamer/job-streamer-control-bus/releases/latest)を取得:
 
 3. contorl busを起動:
 
@@ -31,7 +31,7 @@ status=publish
 
 ## Management console
 
-1.  最新版 [management console](https://github.com/job-streamer/job-streamer-console/releases)
+1.  最新版 [management console](https://github.com/job-streamer/job-streamer-console/releases/latest)
     を取得:
 
 2. consoleを起動:
@@ -47,7 +47,7 @@ status=publish
 
 ## Agent
 
-1.  最新版[agent](https://github.com/job-streamer/job-streamer-agent/releases)を取得:
+1.  最新版[agent](https://github.com/job-streamer/job-streamer-agent/releases/latest)を取得:
 
 2. agentを起動:
 
@@ -58,13 +58,13 @@ status=publish
 |    環境変数名      | 　　説明 　　 | デフォルト値    |
 |:----------------:|:-----------:|:------------:|
 | AGENT_PORT       |ポート番号      |     4510   |
-| INSTANCE_NAME    | インスタンス名  |  (OPTION)  |
+| INSTANCE_NAME    | インスタンス名<br> 起動ごとにAgentのIDが変えたくない場合はこれを指定してください。|  (OPTION)  |
 |DISCOVERY_PORT|接続要求をブロードキャスト(またはマルチキャスト)するためのポート|45100|
-|DISCOVERY_ADDRESS|接続要求をマルチキャストするためのIPアドレス。同一ネットワーク内に複数のコントロールバスを起動する場合はこれを指定して下さい。|(OPTION)|
+|DISCOVERY_ADDRESS|接続要求をマルチキャストするためのIPアドレス。<br>同一ネットワーク内に複数のコントロールバスを起動する場合はこれを指定して下さい。|(OPTION)|
 
 ## Notificator
 
-1.  最新版[notificator](https://github.com/job-streamer/job-streamer-notificator/releases)を取得:
+1.  最新版[notificator](https://github.com/job-streamer/job-streamer-notificator/releases/latest)を取得:
 
 2. notificatorを起動:
 
