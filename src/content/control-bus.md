@@ -96,9 +96,9 @@ edn
   :job/properties {:key "value"}}
 ```
 
-json
+JSON
 
-```json
+```JSON
 {
   "job/name": "example-job",
   "job/components": [
@@ -190,9 +190,9 @@ edn
 }
 ```
 
-json
+JSON
 
-```json
+```JSON
 {
   "calendar/name": "example"
   "calendar/weekly-holiday": [true false false false false false true]
@@ -241,9 +241,9 @@ edn
 }
 ```
 
-json
+JSON
 
-```json
+```JSON
 {
  "schedule/cron-notation": "0 0 * * * ?"
  ":schedule/calendar":{
