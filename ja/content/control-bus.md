@@ -63,6 +63,36 @@ POST /apps
 GET /:app-name/jobs
 ```
 
+####Query
+jobを条件検索したい場合は以下のようにパラメータを付加することでできます。
+
+```
+GET /:app-name/jobs?q=[query]
+```
+
+queryでは基本的にスペース区切りでjob名を指定することで、部分一致検索を行います。
+それ以外にもプレフィックスをつけることで様々な検索が可能です。
+
+|prefix|Description|
+|----|-----------|
+|exit-status:|最終実行のexit-statusとパラメータが部分一致するかどうか|
+|since:|最終実行の終了時刻(yyyy-MM-dd)がパラメータ以降であるかどうか|
+|until:|最終実行の終了時刻(yyyy-MM-dd)がパラメータ以前であるかどうか|
+
+##### Example
+
+encoded
+```
+GET /:app-name/jobs?q=send%20mail%20since%3a2000%2d01%2d01%20until%3a2100%2d01%2d01
+```
+
+not encoded
+```
+GET /:app-name/jobs?q=send mail since:2000-01-01 until:2100-01-01
+```
+
+job名に　send と mail を含み jobの最終実行が2000-01-01から2100-01-01のjobが得られます。
+
 ### Create a job
 
 ```
