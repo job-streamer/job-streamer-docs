@@ -91,7 +91,7 @@ not encoded
 GET /:app-name/jobs?q=send mail since:2000-01-01 until:2100-01-01
 ```
 
-job名に　send と mail を含み jobの最終実行が2000-01-01から2100-01-01のjobが得られます。
+job名に　send か mail を含み jobの最終実行が2000-01-01から2100-01-01のjobが得られます。
 
 ### Create a job
 

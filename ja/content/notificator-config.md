@@ -40,7 +40,7 @@ ednファイルは以下の形で記述してください。
       :keyx{...}}
 
 :uri - Apache CamelのRouteBuilder#fromに相当する。キーが送られてきたときの動作を記述する。
-       設定できる動作はhttp://camel.apache.org/components.htmlを参照
+       設定できる動作は[http://camel.apache.org/components.html](http://camel.apache.org/components.html)を参照
 :to  - Apache CamelのRouteBuilder#toに相当する。
 :message - Apache Camelのsetbodyに相当する。
 
