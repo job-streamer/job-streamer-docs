@@ -82,11 +82,13 @@ queryでは基本的にスペース区切りでjob名を指定することで、
 ##### Example
 
 encoded
+
 ```
 GET /:app-name/jobs?q=send%20mail%20since%3a2000%2d01%2d01%20until%3a2100%2d01%2d01
 ```
 
 not encoded
+
 ```
 GET /:app-name/jobs?q=send mail since:2000-01-01 until:2100-01-01
 ```
