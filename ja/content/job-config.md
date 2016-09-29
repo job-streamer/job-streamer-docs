@@ -13,7 +13,7 @@ executionをオンにしてください。
 
 同じくSettingsタブで監視の設定が可能です。
 
-![image](_images/notificator_dojob.png)
+![image](img/notificator_dojob.png)
 
 ### バッチステータス、終了ステータスの値に応じてメールを送信する
 
