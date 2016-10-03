@@ -23,7 +23,7 @@ status=publish
 
 3.カレンダーを作成
 
-![image](img/goto-calendar.png)
+![image](img/create-calendar.png)
 
 ## カレンダーを設定して休日はジョブの実行を抑止する
 cron expressionsとともにカレンダーも設定することでカレンダーに休日として登録されている日はジョブの実行を抑止することができます。

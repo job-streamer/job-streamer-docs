@@ -21,7 +21,7 @@ You can automatically execute job registrationing schedule using [quartz schedul
 
 3.Create a calendar
 
-![image](img/goto-calendar.png)
+![image](img/create-calendar.png)
 
 ## Set calendar
 
