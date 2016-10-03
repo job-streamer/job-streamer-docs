@@ -79,6 +79,6 @@ ednファイルでは以下のように"message-template" というキーでhbs�
 
     bin/notificator [edn file] [hbs file dir]
 
-hbsファイルを複数用いる場合は同一ディレクトリないにおいてください。
+hbsファイルを複数用いる場合は同一ディレクトリ内に置いてください。
 hbsファイルを用いない場合第二引数は省略可能です。
 
