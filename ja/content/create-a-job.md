@@ -24,6 +24,6 @@ BatchletやItemReader/ItemWriter/ItemProcessorはコントロールバスにデ�
 1. 設定ボタンを押下し、設定を開く
 ![image](img\open-propety-dialog.png)
 2. Propertyを必要な数だけProperties内にドラッグアンドドロップする
-![image](img\propety-area.png)
+![image](img\property-area.png)
 3. Propertiesにkey/valueの組を登録する
 ![image](img\setting-properties.png)
