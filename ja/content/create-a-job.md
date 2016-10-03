@@ -16,3 +16,14 @@ status=publish
 
 BatchletやItemReader/ItemWriter/ItemProcessorはコントロールバスにデプロイされているものだけが使用できます。
 新しいバッチ部品を使用したい場合は [ジョブ部品のデプロイ](./get-started-developer.html)を参照してください。
+
+##プロパティの設定
+
+プロパティを設定する手順は以下の通りです
+
+1. 設定ボタンを押下し、設定を開く
+![image](img\open-propety-dialog.png)
+2. Propertyを必要な数だけProperties内にドラッグアンドドロップする
+![image](img\propety-area.png)
+3. Propertiesにkey/valueの組を登録する
+![image](img\setting-properties.png)
