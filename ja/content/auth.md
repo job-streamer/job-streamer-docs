@@ -1,4 +1,8 @@
+type=page
+status=publish
+~~~~~~
 
+#認証認可
 
 ## 認証
 
