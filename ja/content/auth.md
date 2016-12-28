@@ -77,10 +77,9 @@ curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-
 
 ## 環境変数
 control-busでAPIリクエスト送信元の認証を行う必要上、環境変数を一つ追加しております。
-control-busとconsoleが別サーバで起動している場合、control-bus側の環境変数にACCESS_CONTROL_ALLOW_ORIGINという環境変数を追加してください。
+control-busの環境変数にACCESS_CONTROL_ALLOW_ORIGINという環境変数を追加してください。
 
 ```
-export ACCESS_CONTROL_ALLOW_ORIGIN=http://[CONSOLE_ADDRESS]:[CONSOLE_PORT]
+export ACCESS_CONTROL_ALLOW_ORIGIN=http://[CONSOLE_IP_ADDRESS]:[CONSOLE_PORT]
 ```
 
-同一サーバで起動している場合は不要です。
