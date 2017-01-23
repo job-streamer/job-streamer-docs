@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-#認証認可
+# 認証認可
 
 ## 認証
 
@@ -25,7 +25,6 @@ Password : password123
 * admin : 全ての操作が可能
 * operator : ジョブの実行は可能だがジョブの編集は不可
 * watcher : ジョブの実行も編集も不可
-
 ジョブの実行、編集にはそれぞれ下記の操作が含まれます。
 
 * ジョブの編集
@@ -37,7 +36,7 @@ Password : password123
     * ジョブスケジュールの変更
 
 console 上で権限のない操作を行った場合にはエラーメッセージが表示されて実行されません。
-デフォルトで存在する "admin" というユーザには "admin" 権限が付与されています。
+デフォルトで存在する “admin” というユーザには “admin” 権限が付与されています。
 それ以外の権限を持つユーザを作成する場合は以下の「ユーザ管理」を参照してください。
 
 ## ユーザ管理
@@ -52,7 +51,7 @@ curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/i
 curl -XDELETE localhost:45102/user/test-user
 ```
 
-## API実行時の認証
+### API実行時の認証
 
 control-bus の API を利用するためにも認証処理が必要となります。
 まず下記の通りログイン API を実行して認証トークンを取得します。
@@ -60,26 +59,23 @@ control-bus の API を利用するためにも認証処理が必要となりま
 ```
 # username : ログインユーザID
 # password : ログインユーザパスワード
-# appname : "default"を指定
-# next : ログイン成功時の表示画面のURLを指定
-# back : ログイン失敗時の表示画面のURLを指定
-curl -XPOST "http://localhost:45102/login?username=admin&password=password123&appname=default&next=http://localhost:3000&back=http://localhost:3000/login"
+curl -XPOST localhost:45102/auth -H "Content-Type: application/edn" -d '{:user/id "admin" :user/password "password123"}' -v
 {:token "5f080f9c-3023-4a6a-89fb-de983f768c4d"}
 ```
 
 この場合、5f080f9c-3023-4a6a-89fb-de983f768c4dが認証トークンです。
-次にこのトークンを使って、"Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d"ヘッダを付与してリクエストすると、認証ユーザが権限を持つ任意の API を実行することが出来ます。
+次にこのトークンを使って、“Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d”ヘッダを付与してリクエストすると、認証ユーザが権限を持つ任意の API を実行することが出来ます。
 
 ```
 curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d' http://localhost:45102/default/jobs
 {:results [...]}
 ```
 
-## 環境変数
+###環境変数
+
 control-busでAPIリクエスト送信元の認証を行う必要上、環境変数を一つ追加しております。
 control-busの環境変数にACCESS_CONTROL_ALLOW_ORIGINという環境変数を追加してください。
 
 ```
 export ACCESS_CONTROL_ALLOW_ORIGIN=http://[CONSOLE_IP_ADDRESS]:[CONSOLE_PORT]
 ```
-
