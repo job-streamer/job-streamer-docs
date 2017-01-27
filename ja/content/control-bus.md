@@ -314,6 +314,11 @@ GET /:app-name/job/:job-name/executions
 ]
 ```
 
+### Delete executions
+```
+DELETE /:app-name/job/:job-name/executions
+```
+
 ### Get a single execution
 
 ```
