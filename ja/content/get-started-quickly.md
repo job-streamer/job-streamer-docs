@@ -27,6 +27,8 @@ status=publish
 |DISCOVERY_PORT|実行エージェントからの接続要求をLISTENするためのポート|45100|
 |DISCOVERY_ADDRESS|実行エージェントからの接続要求をLISTENするためのマルチキャストIP|(OPTION)|
 |NOTIFICATOR_URL|通知サーバのURL|http://localhost:2121|
+|ACCESS_CONTROL_ALLOW_ORIGIN|オペレーターからみたconsoleのURL|http://localhost:3000
+|CONTROLE_BUS_RESOURCE_PATH|control-busのクラスパスに追加されるパス|(OPTION)
 
 
 ## Management console
@@ -61,6 +63,7 @@ status=publish
 | INSTANCE_NAME    | インスタンス名<br> 起動ごとにAgentのIDが変えたくない場合はこれを指定してください。|  (OPTION)  |
 |DISCOVERY_PORT|接続要求をブロードキャスト(またはマルチキャスト)するためのポート|45100|
 |DISCOVERY_ADDRESS|接続要求をマルチキャストするためのIPアドレス。<br>同一ネットワーク内に複数のコントロールバスを起動する場合はこれを指定して下さい。|(OPTION)|
+|AGENT_RESOURCE_PATH|agentのクラスパスに追加されるパス|(OPTION)
 
 ## Notificator
 
@@ -82,3 +85,6 @@ status=publish
 
 ## バッチ部品のデプロイ
 [バッチ部品のデプロイ](./deploy-batch-components.html)を参照してください。
+
+## ログの取得
+環境変数CONTROL_BUS_RESOURCE_PATH, AGENT_RESOURCE_PATHを設定し、そこに[logback.xml](https://logback.qos.ch/manual/configuration_ja.html)を配置することでlogの定義を独自定義することが可能です。

@@ -23,6 +23,10 @@
          <a class="item" href="${content.rootpath}notificator-config.html">
          Notificatorの設定
          </a>
+         </a>
+         <a class="item" href="${content.rootpath}auth.html">
+         認証認可
+         </a>
       </div>
    </div>
    <div class="item">

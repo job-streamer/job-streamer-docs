@@ -22,3 +22,12 @@ status=publish
         % mvn -e clean package job-streamer:deploy
 
 > デプロイを行うにはデプロイ資源とcontrol-busが同じサーバーに存在する必要があります。
+
+## Consoleからデプロイを行う
+
+1. with-dependencies.jarを作成する
+
+        % mvn compile assembly:single
+        
+2. 右メニューから「Upload Batch Components」に遷移
+3. ドラッグアンドドロップで1.で作成したjarをアップロードする

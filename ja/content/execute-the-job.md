@@ -20,7 +20,8 @@ status=publish
 
 ![image](img/restart.png)
 
-パラメータが必要な場合は、自動的にJobStreamerが解析して入力フォームを作るので、値を入力してRestartボタンを押します。
+## パラメータ
+実行・リスタート時にパラメータが必要な場合は、自動的にJobStreamerが解析して入力フォームを作るので、値を入力してExecute/Restartボタンを押します。
 
 ![image](img/restart_dialog.png)
 
