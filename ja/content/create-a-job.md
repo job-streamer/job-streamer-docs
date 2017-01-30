@@ -17,5 +17,11 @@ Ex. Batchlet一つのStepだけを持つ簡単なjobを作成する
 ![image](img/select-batchlet-ref.png)
 ![image](img/type-job-name.png)
 
+- Attributeの設定
+![image](img/set-attr.png)
+- Propertyの設定
+![image](img/set-properties.png)
+
 BatchletやItemReader/ItemWriter/ItemProcessorはコントロールバスにデプロイされているものだけが使用できます。
 新しいバッチ部品を使用したい場合は [ジョブ部品のデプロイ](./get-started-developer.html)を参照してください。
+
