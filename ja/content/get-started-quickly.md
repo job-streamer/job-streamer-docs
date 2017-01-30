@@ -9,8 +9,8 @@ status=publish
 
 1.  [datomic-free](https://my.datomic.com/downloads/free)を取得:
 
-        % unzip datomic-free-0.9.5130.zip
-        % cd datomic-free-0.9.5130
+        % unzip datomic-free-0.9.5394.zip
+        % cd datomic-free-0.9.5394
         % bin/transactor config/samples/free-transactor-template.properties
 
 2.  最新版 [control-bus](https://github.com/job-streamer/job-streamer-control-bus/releases/latest)を取得:

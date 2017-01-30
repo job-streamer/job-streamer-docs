@@ -9,8 +9,8 @@ status=publish
 
 1.  Get [datomic-free](https://my.datomic.com/downloads/free):
 
-        % unzip datomic-free-0.9.5130.zip
-        % cd datomic-free-0.9.5130
+        % unzip datomic-free-0.9.5394.zip
+        % cd datomic-free-0.9.5394
         % bin/transactor config/samples/free-transactor-template.properties
 
 2.  Download the latest version [control bus](https://github.com/job-streamer/job-streamer-control-bus/releases/latest):
