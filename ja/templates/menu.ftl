@@ -27,6 +27,9 @@
          <a class="item" href="${content.rootpath}auth.html">
          認証認可
          </a>
+         <a class="item" href="${content.rootpath}import-export.html">
+         インポート・エクスポート
+         </a>
       </div>
    </div>
    <div class="item">
