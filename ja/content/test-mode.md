@@ -16,8 +16,9 @@ status=publish
 1.job作成画面にてテスト実行ボタンを押下
 ![image](img/execute-test-mode.png)
 2.すべてのstepがモックに置き換えられ実行される
-3.成功した場合はプログレスバーが緑色になり、失敗した場合はプログレスバーが赤色になり、エラーログがconsoleに出力される
+3.成功した場合はプログレスバーが緑色になる
 ![image](img/test-success.png)
+4.失敗した場合はプログレスバーが赤色になり、エラーログがconsoleに出力される
 ![image](img/fail-test.png)
 
 ## API
