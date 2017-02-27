@@ -30,6 +30,9 @@
          <a class="item" href="${content.rootpath}import-export.html">
          インポート・エクスポート
          </a>
+         <a class="item" href="${content.rootpath}test-mode.html">
+         テストモード
+         </a>
       </div>
    </div>
    <div class="item">
