@@ -9,7 +9,7 @@ status=publish
 
 You can deploy batch conpornent on control bus using [maven plugin](https://github.com/job-streamer/job-streamer-maven-plugin) .
 
-For the reason,we recommend you make batch component as "maven project"
+For the reason, we recommend you make batch component as "maven project"
 
 ## Example
 
