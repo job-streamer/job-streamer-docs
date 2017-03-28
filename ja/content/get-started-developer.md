@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-# ディベロッパー向けクイックスタート
+# コントリビューター向けクイックスタート
 JobStreamer の開発者は Clojure REPL を使うことで効率的に開発を進めることができます。
 
 ## REPL 起動

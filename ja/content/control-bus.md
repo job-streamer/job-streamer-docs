@@ -56,7 +56,7 @@ POST /apps
 
 `NOTICE`
 
-> JobStreamer は現状では単一のアプリケーション (アプリケーション名: default) にした対応していません。
+> JobStreamer は現状では単一のアプリケーション (アプリケーション名: default) にしか対応していません。
 
 ### ジョブ一覧取得
 
@@ -64,13 +64,14 @@ POST /apps
 GET /:app-name/jobs
 ```
 
-#### 検索クエリ
-job を条件検索したい場合は以下のようにパラメータを付加することでできます。
+#### 検索
+job を条件検索したい場合は以下のように URL パラメータを付加することでできます。
 
 ```
-GET /:app-name/jobs?q=[query]
+GET /:app-name/jobs?q=[query]&with=[with]&sort-by=[sort-by]&limit=[limit]&offset=[offset]
 ```
 
+##### 1. query
 query では基本的にスペース区切りで job 名を指定することで部分一致検索を行います。
 それ以外にもプレフィックスをつけることで様々な検索が可能です。
 
@@ -79,6 +80,55 @@ query では基本的にスペース区切りで job 名を指定することで
 |exit-status:|最終実行の exit-status と指定値が部分一致するかどうか|
 |since:|最終実行の終了時刻 (yyyy-MM-dd) が指定値以降であるかどうか|
 |until:|最終実行の終了時刻 (yyyy-MM-dd) が指定値以前であるかどうか|
+
+* 例
+
+```
+query=send mail since:2000-01-01 until:2100-01-01
+```
+
+##### 2. with
+結果として取得するジョブの属性をカンマ区切りで指定します。
+指定可能な属性は下記です。
+
+||Description|
+|----|-----------|
+| execution |結果に実行履歴を付与します|
+| schedule  |結果にジョブの実行スケジュールを付与します|
+| notation  |結果にジョブの XML, SVG 表記を付与します|
+| settings  |結果にジョブの設定を付与します|
+
+* 例
+
+```
+with=execution,schedule
+```
+
+##### 3. sort-by
+ジョブのソートキーを指定します。
+ソートキーはキー名と昇順降順(asc/desc)をコロン区切りのセットで指定してください。
+複数のソートキーを指定する場合はそれをカンマ区切りで優先順に繋げてください。
+ソートキーとして指定できる属性は下記です。
+
+||Description|
+|----|-----------|
+| name                    | ジョブ名 |
+| last-execution-started  | ジョブ最終実行の開始日時 |
+| last-execution-duration | ジョブ最終実行の実行時間 |
+| last-execution-status   | ジョブ最終実行の終了ステータス |
+| next-execution-start    | ジョブ次回実行の開始予定日時 |
+
+* 例
+
+```
+sort-by=name:asc,last-execution-status:desc
+```
+
+##### 4. limit
+検索上限数を指定して下さい。
+
+##### 5. offset
+ページングの実装などの用途で検索のオフセットを指定して下さい。
 
 ##### 例
 job 名に "send" か "mail" を含み job の最終実行が 2000-01-01 から 2100-01-01 の job を検索するクエリ
@@ -119,7 +169,7 @@ POST /:app-name/jobs
 
 ##### 例: JSON 形式
 
-```json
+```JSON
 {
   "job/name": "example-job",
   "job/bpmn-xml-notation": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:jsr352=\"http://jsr352/\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\">\n  <jsr352:job id=\"Job_1\" bpmn:name=\"test\" isExecutable=\"false\">\n    <jsr352:start id=\"Start_1\">\n      <bpmn:outgoing>Transition_1i7cmsw</bpmn:outgoing>\n    </jsr352:start>\n    <jsr352:step id=\"Step_1j4854h\">\n      <bpmn:incoming>Transition_1i7cmsw</bpmn:incoming>\n    </jsr352:step>\n    <jsr352:transition id=\"Transition_1i7cmsw\" sourceRef=\"Start_1\" targetRef=\"Step_1j4854h\" />\n  </jsr352:job>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Job_1\">\n      <bpmndi:BPMNShape id=\"_BPMNShape_Start_2\" bpmnElement=\"Start_1\">\n        <dc:Bounds x=\"173\" y=\"102\" width=\"36\" height=\"36\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Step_1j4854h_di\" bpmnElement=\"Step_1j4854h\">\n        <dc:Bounds x=\"241\" y=\"110\" width=\"120\" height=\"100\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Transition_1i7cmsw_di\" bpmnElement=\"Transition_1i7cmsw\">\n        <di:waypoint xsi:type=\"dc:Point\" x=\"209\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"152\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"241\" y=\"152\" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x=\"240\" y=\"126\" width=\"0\" height=\"0\" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNEdge>\n    </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</bpmn:definitions>\n",
@@ -185,6 +235,7 @@ POST /calendars
 |calendar/name|String|Required. Name of calenar.|
 |calendar/weekly-holiday|Array|Required. Weekly holiday of calendar.|
 |calendar/holidays|Array|Not Required. Holidays of calendar.|
+|calendar/day-start|String|Not Required (default: 00:00). Time when a day start.|
 
 ##### 例: edn 形式
 
@@ -193,17 +244,19 @@ POST /calendars
   :calendar/name "example"
   :calendar/weekly-holiday [true false false false false false true]
   :calendar/holidays [#inst "2016-09-15T15:00:00.000-00:00"]
+  :calendar/day-start "01:00"
   :new? true
 }
 ```
 
 ##### 例: JSON 形式
 
-```json
+```JSON
 {
-  "calendar/name": "example"
-  "calendar/weekly-holiday": [true false false false false false true]
-  "calendar/holidays" ["2016-09-15"]
+  "calendar/name": "example",
+  "calendar/weekly-holiday": [true false false false false false true],
+  "calendar/holidays" ["2016-09-15"],
+  "calendar/day-start": "01:00",
   :new? true
 }
 ```
@@ -245,7 +298,6 @@ POST /:app-name/job/:job-name/schedule
 |schedule/calendar|Map|Not Required. A schedule by calendar.|
 |calendar/name|String|Not Required. Name of calendar.|
 
-
 ##### 例: edn 形式
 
 ```clojure
@@ -256,9 +308,9 @@ POST /:app-name/job/:job-name/schedule
 
 ##### 例: JSON 形式
 
-```json
+```JSON
 {
- "schedule/cron-notation": "0 0 * * * ?"
+ "schedule/cron-notation": "0 0 * * * ?",
  ":schedule/calendar":{
    "calendar/name": "example"
  }
@@ -269,6 +321,33 @@ POST /:app-name/job/:job-name/schedule
 
 ```
 POST /:app-name/job/:job-name/executions
+```
+
+#### パラメータ
+
+実行するジョブにパラメータが存在している場合、POST パラメータで渡すことが出来ます。
+ジョブへのパラメータ指定方法については [ジョブの作成](./create-a-job.html) を参照してください。
+
+|Name|Type|Description|
+|----|----|-----------|
+|[parameter name]|String|Not Required. Parameter for job|
+
+##### 例: edn 形式
+
+```clojure
+{
+  :job-param1 "test"
+  :job-param2 "test"
+}
+```
+
+##### 例: JSON 形式
+
+```JSON
+{
+  "job-param1": "test",
+  "job-param2": "test"
+}
 ```
 
 ### ジョブ実行履歴一覧取得
