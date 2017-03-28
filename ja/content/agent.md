@@ -3,7 +3,6 @@ status=publish
 ~~~~~~
 
 # Agent
-## Agent とは？
 Agent は JobStreamer におけるジョブの実行エージェントであり、ノーデプロイ、ノーコンフィギュレーションな分散実行を可能にするための仕組みです。
 JobStreamer における job 実行はすべて Control-bus から Agent の API を呼び出すことで行います。
 

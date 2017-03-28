@@ -2,14 +2,12 @@ type=page
 status=publish
 ~~~~~~
 
-# Control-bus
-
-## Control-bus とは？
-control-bus は API 呼び出しを制御します。
+# Control bus
+Control-bus は API 呼び出しを制御します。
 すべての API 呼び出しは control-bus を介して行います。
 そのため、直接 console -> agent といった APIアクセス が発生することはありません。
 
-## Control-bus で出来ること
+## Control bus で出来ること
 * バッチ部品のデプロイ
 * ジョブの登録
 * ジョブの削除
@@ -27,13 +25,13 @@ control-bus は API 呼び出しを制御します。
 * ジョブのスケジュールの停止
 * ジョブのスケジューリングの削除
 
-## Control-bus API
+## Control bus API
 Control-bus は REST API を提供します。
 POST/PUT 時のパラメータは edn 形式と JSON 形式に対応しています。
 
 ### 認証
 全ての API の実行には認証が必要です。
-API 呼び出し時の認証方法については [認証認可#API 実行時の認証](./auth.html) を参照してください
+API 呼び出し時の認証方法については [認証認可#API 実行時の認証](./auth.html#api-実行時の認証) を参照してください
 
 ### アプリケーション作成
 
@@ -95,8 +93,7 @@ API を呼び出す際には URL エンコーディングして渡します。
 GET /:app-name/jobs?q=send%20mail%20since%3a2000%2d01%2d01%20until%3a2100%2d01%2d01
 ```
 
-### ~~ジョブ作成~~
-***この API は現在使用することが出来ません***
+### ジョブ作成
 
 ```
 POST /:app-name/jobs
@@ -104,26 +101,20 @@ POST /:app-name/jobs
 
 #### パラメータ
 
-|Name|Type|Description|
-|----|----|-----------|
-|job/name|String|Required. The name of the job.|
-|job/components|Map|Required. The components of the job.|
-|job/properties|Map|Required but accept null. The properties of the job.|
-|step/name|String|Required. The name of the step.|
-|step/properties|Map|Required but accept null. The properties of the step.|
+| Name                  | Type   | Description |
+|-----------------------|--------|-------------|
+| job/name              | String | Required. The name of the job. |
+| job/bpmn-xml-notation | String | Required. job body formatted as BPMN |
+| job/svg-notation      | String | Required. job svg string |
 
 ##### 例: edn 形式
 
 ```clojure
 {
   :job/name "example-job"
-  :job/components [{
-    :step/name "example-step"
-    :step/properties nil
-    :step/batchlet {
-      :batchlet/ref "example.HelloBatch"
-      }}]
-  :job/properties {:key "value"}}
+  :job/bpmn-xml-notation "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:jsr352=\"http://jsr352/\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\">\n  <jsr352:job id=\"Job_1\" bpmn:name=\"test\" isExecutable=\"false\">\n    <jsr352:start id=\"Start_1\">\n      <bpmn:outgoing>Transition_1i7cmsw</bpmn:outgoing>\n    </jsr352:start>\n    <jsr352:step id=\"Step_1j4854h\">\n      <bpmn:incoming>Transition_1i7cmsw</bpmn:incoming>\n    </jsr352:step>\n    <jsr352:transition id=\"Transition_1i7cmsw\" sourceRef=\"Start_1\" targetRef=\"Step_1j4854h\" />\n  </jsr352:job>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Job_1\">\n      <bpmndi:BPMNShape id=\"_BPMNShape_Start_2\" bpmnElement=\"Start_1\">\n        <dc:Bounds x=\"173\" y=\"102\" width=\"36\" height=\"36\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Step_1j4854h_di\" bpmnElement=\"Step_1j4854h\">\n        <dc:Bounds x=\"241\" y=\"110\" width=\"120\" height=\"100\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Transition_1i7cmsw_di\" bpmnElement=\"Transition_1i7cmsw\">\n        <di:waypoint xsi:type=\"dc:Point\" x=\"209\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"152\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"241\" y=\"152\" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x=\"240\" y=\"126\" width=\"0\" height=\"0\" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNEdge>\n    </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</bpmn:definitions>\n"
+  :job/svg-notation "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- created with bpmn-js / http://bpmn.io -->\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"200\" height=\"120\" viewBox=\"167 96 200 120\" version=\"1.1\"><defs><marker id=\"sequenceflow-end\" viewBox=\"0 0 20 20\" refX=\"11\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 5 L 11 10 L 1 15 Z\" style=\"fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1;\"></path></marker><marker id=\"messageflow-start\" viewBox=\"0 0 20 20\" refX=\"6\" refY=\"6\" markerWidth=\"20\" markerHeight=\"20\" orient=\"auto\"><circle cx=\"6\" cy=\"6\" r=\"3.5\" style=\"fill: white; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></circle></marker><marker id=\"messageflow-end\" viewBox=\"0 0 20 20\" refX=\"8.5\" refY=\"5\" markerWidth=\"20\" markerHeight=\"20\" orient=\"auto\"><path d=\"m 1 5 l 0 -3 l 7 3 l -7 3 z\" style=\"fill: white; stroke-width: 1px; stroke-linecap: butt; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"association-start\" viewBox=\"0 0 20 20\" refX=\"1\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 11 5 L 1 10 L 11 15\" style=\"fill: none; stroke-width: 1.5px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"association-end\" viewBox=\"0 0 20 20\" refX=\"12\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 5 L 11 10 L 1 15\" style=\"fill: none; stroke-width: 1.5px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"conditional-flow-marker\" viewBox=\"0 0 20 20\" refX=\"-1\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 0 10 L 8 6 L 16 10 L 8 14 Z\" style=\"fill: white; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"conditional-default-flow-marker\" viewBox=\"0 0 20 20\" refX=\"-5\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 4 L 5 16\" style=\"fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker></defs><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Start_1\" style=\"display: block;\" transform=\"translate(173 102)\"><g class=\"djs-visual\"><circle cx=\"18\" cy=\"18\" r=\"18\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/></g><rect x=\"0\" y=\"0\" width=\"36\" height=\"36\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"48\" height=\"48\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Start_1_label\" style=\"display: none;\" transform=\"translate(191 138)\"><g class=\"djs-visual\"><text class=\"djs-label\" transform=\"translate(0,0)\" style=\"font-family: Arial, sans-serif; font-size: 11px;\"><tspan x=\"45\" y=\"12\"/></text></g><rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"12\" height=\"12\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Step_1j4854h\" style=\"display: block;\" transform=\"translate(241 110)\"><g class=\"djs-visual\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"100\" rx=\"10\" ry=\"10\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/><rect x=\"0\" y=\"0\" width=\"40\" height=\"20\" rx=\"0\" ry=\"0\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/><text style=\"font-family: Arial, sans-serif; font-size: 12px; fill: rgb(0, 0, 0);\"><tspan x=\"7.5\" y=\"13.5\">Step</tspan></text><text style=\"font-family: Arial, sans-serif; font-size: 12px;\"><tspan x=\"60\" y=\"15\"/></text></g><rect x=\"0\" y=\"0\" width=\"120\" height=\"100\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"132\" height=\"112\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-connection\" data-element-id=\"Transition_1i7cmsw\" style=\"display: block;\"><g class=\"djs-visual\"><path d=\"m  209,120L225,120 L225,152 L241,152 \" style=\"fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end');\"/></g><polyline points=\"209,120 225,120 225,152 241,152 \" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"203\" y=\"114\" width=\"44\" height=\"44\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Transition_1i7cmsw_label\" style=\"display: none;\" transform=\"translate(240 126)\"><g class=\"djs-visual\"><text class=\"djs-label\" transform=\"translate(0,0)\" style=\"font-family: Arial, sans-serif; font-size: 11px;\"><tspan x=\"45\" y=\"12\"/></text></g><rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"12\" height=\"12\" class=\"djs-outline\" style=\"fill: none;\"/></g></g></svg>"}
+}
 ```
 
 ##### 例: JSON 形式
@@ -131,18 +122,8 @@ POST /:app-name/jobs
 ```json
 {
   "job/name": "example-job",
-  "job/components": [
-    {
-      "step/name": "example-step",
-      "step/properties": null,
-      "step/batchlet": {
-        "batchlet/ref": "example.HelloBatch"
-      }
-    }
-  ],
-  "job/properties": {
-      "key": "value"
-  }
+  "job/bpmn-xml-notation": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:jsr352=\"http://jsr352/\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\">\n  <jsr352:job id=\"Job_1\" bpmn:name=\"test\" isExecutable=\"false\">\n    <jsr352:start id=\"Start_1\">\n      <bpmn:outgoing>Transition_1i7cmsw</bpmn:outgoing>\n    </jsr352:start>\n    <jsr352:step id=\"Step_1j4854h\">\n      <bpmn:incoming>Transition_1i7cmsw</bpmn:incoming>\n    </jsr352:step>\n    <jsr352:transition id=\"Transition_1i7cmsw\" sourceRef=\"Start_1\" targetRef=\"Step_1j4854h\" />\n  </jsr352:job>\n  <bpmndi:BPMNDiagram id=\"BPMNDiagram_1\">\n    <bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Job_1\">\n      <bpmndi:BPMNShape id=\"_BPMNShape_Start_2\" bpmnElement=\"Start_1\">\n        <dc:Bounds x=\"173\" y=\"102\" width=\"36\" height=\"36\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id=\"Step_1j4854h_di\" bpmnElement=\"Step_1j4854h\">\n        <dc:Bounds x=\"241\" y=\"110\" width=\"120\" height=\"100\" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id=\"Transition_1i7cmsw_di\" bpmnElement=\"Transition_1i7cmsw\">\n        <di:waypoint xsi:type=\"dc:Point\" x=\"209\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"120\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"225\" y=\"152\" />\n        <di:waypoint xsi:type=\"dc:Point\" x=\"241\" y=\"152\" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x=\"240\" y=\"126\" width=\"0\" height=\"0\" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNEdge>\n    </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</bpmn:definitions>\n",
+  "job/svg-notation": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- created with bpmn-js / http://bpmn.io -->\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"200\" height=\"120\" viewBox=\"167 96 200 120\" version=\"1.1\"><defs><marker id=\"sequenceflow-end\" viewBox=\"0 0 20 20\" refX=\"11\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 5 L 11 10 L 1 15 Z\" style=\"fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1;\"></path></marker><marker id=\"messageflow-start\" viewBox=\"0 0 20 20\" refX=\"6\" refY=\"6\" markerWidth=\"20\" markerHeight=\"20\" orient=\"auto\"><circle cx=\"6\" cy=\"6\" r=\"3.5\" style=\"fill: white; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></circle></marker><marker id=\"messageflow-end\" viewBox=\"0 0 20 20\" refX=\"8.5\" refY=\"5\" markerWidth=\"20\" markerHeight=\"20\" orient=\"auto\"><path d=\"m 1 5 l 0 -3 l 7 3 l -7 3 z\" style=\"fill: white; stroke-width: 1px; stroke-linecap: butt; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"association-start\" viewBox=\"0 0 20 20\" refX=\"1\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 11 5 L 1 10 L 11 15\" style=\"fill: none; stroke-width: 1.5px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"association-end\" viewBox=\"0 0 20 20\" refX=\"12\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 5 L 11 10 L 1 15\" style=\"fill: none; stroke-width: 1.5px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"conditional-flow-marker\" viewBox=\"0 0 20 20\" refX=\"-1\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 0 10 L 8 6 L 16 10 L 8 14 Z\" style=\"fill: white; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker><marker id=\"conditional-default-flow-marker\" viewBox=\"0 0 20 20\" refX=\"-5\" refY=\"10\" markerWidth=\"10\" markerHeight=\"10\" orient=\"auto\"><path d=\"M 1 4 L 5 16\" style=\"fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;\"></path></marker></defs><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Start_1\" style=\"display: block;\" transform=\"translate(173 102)\"><g class=\"djs-visual\"><circle cx=\"18\" cy=\"18\" r=\"18\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/></g><rect x=\"0\" y=\"0\" width=\"36\" height=\"36\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"48\" height=\"48\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Start_1_label\" style=\"display: none;\" transform=\"translate(191 138)\"><g class=\"djs-visual\"><text class=\"djs-label\" transform=\"translate(0,0)\" style=\"font-family: Arial, sans-serif; font-size: 11px;\"><tspan x=\"45\" y=\"12\"/></text></g><rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"12\" height=\"12\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Step_1j4854h\" style=\"display: block;\" transform=\"translate(241 110)\"><g class=\"djs-visual\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"100\" rx=\"10\" ry=\"10\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/><rect x=\"0\" y=\"0\" width=\"40\" height=\"20\" rx=\"0\" ry=\"0\" style=\"stroke: black; stroke-width: 2px; fill: white;\"/><text style=\"font-family: Arial, sans-serif; font-size: 12px; fill: rgb(0, 0, 0);\"><tspan x=\"7.5\" y=\"13.5\">Step</tspan></text><text style=\"font-family: Arial, sans-serif; font-size: 12px;\"><tspan x=\"60\" y=\"15\"/></text></g><rect x=\"0\" y=\"0\" width=\"120\" height=\"100\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"132\" height=\"112\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-connection\" data-element-id=\"Transition_1i7cmsw\" style=\"display: block;\"><g class=\"djs-visual\"><path d=\"m  209,120L225,120 L225,152 L241,152 \" style=\"fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end');\"/></g><polyline points=\"209,120 225,120 225,152 241,152 \" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"203\" y=\"114\" width=\"44\" height=\"44\" class=\"djs-outline\" style=\"fill: none;\"/></g></g><g class=\"djs-group\"><g class=\"djs-element djs-shape\" data-element-id=\"Transition_1i7cmsw_label\" style=\"display: none;\" transform=\"translate(240 126)\"><g class=\"djs-visual\"><text class=\"djs-label\" transform=\"translate(0,0)\" style=\"font-family: Arial, sans-serif; font-size: 11px;\"><tspan x=\"45\" y=\"12\"/></text></g><rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" class=\"djs-hit\" style=\"fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;\"/><rect x=\"-6\" y=\"-6\" width=\"12\" height=\"12\" class=\"djs-outline\" style=\"fill: none;\"/></g></g></svg>"
 }
 ```
 
@@ -176,8 +157,7 @@ GET /:app-name/job/:job-name
                                              :agent/instance-id #uuid "5c6e27ba-037b-42aa-91cc-b55eec159bd0"}}}
 ```
 
-### ~~ジョブ更新~~
-***この API は現在使用することが出来ません***
+### ジョブ更新
 
 ```
 PUT /:app-name/job/:job-name

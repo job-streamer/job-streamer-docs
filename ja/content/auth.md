@@ -5,8 +5,8 @@ status=publish
 # 認証認可
 
 ## 認証
-全てのAPIを利用するために認証（ログイン）情報が必要となります。
-ログインしていない状態で console のいずれかの URL を開くとログイン画面に遷移します。
+JobStreamer を利用するために認証（ログイン）情報が必要です。
+ログインしていない状態で Console のいずれかの URL を開くとログイン画面に遷移します。
 http://localhost:3000/login
 
 ログイン画面からデフォルトの下記ユーザのID/Passwordを使ってログインしてください。
@@ -20,8 +20,8 @@ http://localhost:3000/login
 ログインユーザにはジョブに対して三つの権限が存在します。
 
 * admin : 全ての操作が可能
-* operator : ジョブの実行は可能だがジョブの編集は不可
-* watcher : ジョブの実行も編集も不可
+* operator : ジョブの情報参照、実行は可能だがジョブの編集は不可
+* watcher : ジョブの情報参照のみ可能
 
 ジョブの実行、編集にはそれぞれ下記の操作が含まれます。
 
@@ -33,15 +33,15 @@ http://localhost:3000/login
     * ジョブの実行・停止・再開・破棄
     * ジョブスケジュールの変更
 
-console 上で権限のない操作を行った場合にはエラーメッセージが表示されて実行されません。
+Console 上で権限のない操作を行った場合にはエラーメッセージが表示されて実行されません。
 デフォルトで存在する "admin" というユーザには "admin" 権限が付与されています。
 それ以外の権限を持つユーザを作成する場合は以下の「ユーザ管理」を参照してください。
 
 ## ユーザ管理
-現状、ログインユーザ作成・削除機能をAPIのみで提供しております。
+現状、ログインユーザ作成・削除機能をAPIのみで提供してます。
 下記のサンプルを基に実行してください。
 
-```
+```sh
 # "operator" 権限を持った、"test-user" というログインユーザを "password123" というパスワードで作成
 curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :roll "operator"}'
 # "test-user" という ID のログインユーザを削除
@@ -49,10 +49,10 @@ curl -XDELETE localhost:45102/user/test-user
 ```
 
 ### API 実行時の認証
-control-bus の API を利用するためにも認証処理が必要となります。
+Control-bus の API を利用するためにも認証処理が必要となります。
 まず下記の通りログイン API を実行して認証トークンを取得します。
 
-```
+```sh
 # username : ログインユーザID
 # password : ログインユーザパスワード
 curl -XPOST localhost:45102/auth -H "Content-Type: application/edn" -d '{:user/id "admin" :user/password "password123"}' -v
@@ -62,14 +62,7 @@ curl -XPOST localhost:45102/auth -H "Content-Type: application/edn" -d '{:user/i
 この場合、 5f080f9c-3023-4a6a-89fb-de983f768c4d が認証トークンです。
 次にこのトークンを使って、"Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d" ヘッダを付与してリクエストすると、認証ユーザが権限を持つ任意の API を実行することが出来ます。
 
-```
+```sh
 curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d' http://localhost:45102/default/jobs
 {:results [...]}
-```
-
-### 環境変数
-control-bus の環境変数にACCESS_CONTROL_ALLOW_ORIGINという環境変数を指定してください。
-
-```
-export ACCESS_CONTROL_ALLOW_ORIGIN=http://[CONSOLE_IP_ADDRESS]:[CONSOLE_PORT]
 ```

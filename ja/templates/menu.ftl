@@ -27,7 +27,7 @@
          ジョブの設定
          </a>
          <a class="item" href="${content.rootpath}notificator-config.html">
-         Notificatorの設定
+         通知サーバの設定
          </a>
          </a>
          <a class="item" href="${content.rootpath}import-export.html">

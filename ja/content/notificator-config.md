@@ -3,6 +3,7 @@ status=publish
 ~~~~~~
 
 # 通知サーバの設定
+通知サーバ (Notificator) の概要については [Notificator](./notificator.html) を参照してください。
 
 ## 設定ファイル
 edn 形式のファイルにより設定をします。

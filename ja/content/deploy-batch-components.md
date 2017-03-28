@@ -6,7 +6,7 @@ status=publish
 
 ## デプロイ手法
 
-[maven plugin](https://github.com/job-streamer/job-streamer-maven-plugin)を用いて、もしくは jar ファイルに固めた上でコンソールから、バッチ部品をコントロールバス上にデプロイします。
+[maven plugin](https://github.com/job-streamer/job-streamer-maven-plugin) を用いて、もしくは jar ファイルに固めた上で Console から、バッチ部品を Control-bus 上にデプロイします。
 いずれの手段を用いるにしてもバッチ部品は maven プロジェクトで作成することを推奨します。
 
 ### maven plugin からデプロイを行う
