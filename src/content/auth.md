@@ -2,65 +2,65 @@ type=page
 status=publish
 ~~~~~~
 
-# 認証認可
+# Authentification and authorization
 
-## 認証
-JobStreamer を利用するために認証（ログイン）情報が必要です。
-ログインしていない状態で Console のいずれかの URL を開くとログイン画面に遷移します。
+## Authentification
+Authentification is required when you use JobStreamer.
+If you open any URL of Console without authentification, you will be redirected to login page.
 http://localhost:3000/login
 
-ログイン画面からデフォルトの下記ユーザのID/Passwordを使ってログインしてください。
+Login with following default ID and Passwod.
 
 * ID : admin
 * Password : password123
 
-ログアウトする場合はヘッダー右のメニューから「Logout」を選択して下さい。
+If you want to logout, click Logout link in the menu located in the right-hand side of header.
 
-## 認可
-ログインユーザにはジョブに対して三つの権限が存在します。
+## Authorization
+JobStreamer has three authorities to a job for a login user.
 
-* admin : 全ての操作が可能
-* operator : ジョブの情報参照、実行は可能だがジョブの編集は不可
-* watcher : ジョブの情報参照のみ可能
+* admin : All operations for job are allowed.
+* operator : Reference of job information and execution of job are allowed. But editing of job is not allowed.
+* watcher : Only reference of job information is allowed.
 
-ジョブの実行、編集にはそれぞれ下記の操作が含まれます。
+Reference of job and editing of job include following operations respectively.
 
-* ジョブの編集
-    * ジョブ定義の変更
-    * ジョブ設定の変更
-    * ジョブの削除
-* ジョブの実行
-    * ジョブの実行・停止・再開・破棄
-    * ジョブスケジュールの変更
+* Reference of job
+    * Change job definition.
+    * Change job configuration.
+    * Delete job.
+* Editing of job
+    * Execute and stop, restart, abandon job.
+    * Change job schedule.
 
-Console 上で権限のない操作を行った場合にはエラーメッセージが表示されて実行されません。
-デフォルトで存在する "admin" というユーザには "admin" 権限が付与されています。
-それ以外の権限を持つユーザを作成する場合は以下の「ユーザ管理」を参照してください。
+If you do an unallowed operation on the Console, an error message will appear and the operation will be canceled.
+Default user, "admin" has "admin" authority.
+Please refer to following "User management" section, if you want to create other users who have other authority.
 
-## ユーザ管理
-現状、ログインユーザ作成・削除機能をAPIのみで提供してます。
-下記のサンプルを基に実行してください。
+## User management
+Currently, login user creation and deletion are provided by API.
+Please execute it like following example.
 
 ```sh
-# "operator" 権限を持った、"test-user" というログインユーザを "password123" というパスワードで作成
+# Create login user named "test-user" with "operator" authority and password "password123"
 curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :roll "operator"}'
-# "test-user" という ID のログインユーザを削除
+# Delete login user whose id is "test-user".
 curl -XDELETE localhost:45102/user/test-user
 ```
 
-### API 実行時の認証
-Control-bus の API を利用するためにも認証処理が必要となります。
-まず下記の通りログイン API を実行して認証トークンを取得します。
+### Authentification in API execution
+You also need authentification when you use Control-bus REST API.
+At first you need to get authentification token by executing login API.
 
 ```sh
-# username : ログインユーザID
-# password : ログインユーザパスワード
+# username : Login user id
+# password : Login user password
 curl -XPOST localhost:45102/auth -H "Content-Type: application/edn" -d '{:user/id "admin" :user/password "password123"}' -v
 {:token "5f080f9c-3023-4a6a-89fb-de983f768c4d"}
 ```
 
-この場合、 5f080f9c-3023-4a6a-89fb-de983f768c4d が認証トークンです。
-次にこのトークンを使って、"Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d" ヘッダを付与してリクエストすると、認証ユーザが権限を持つ任意の API を実行することが出来ます。
+In this case, 5f080f9c-3023-4a6a-89fb-de983f768c4d is the authentification token.
+Next, request with "Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d" header and you can execute any APIs you are allowed.
 
 ```sh
 curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d' http://localhost:45102/default/jobs
