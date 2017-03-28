@@ -56,13 +56,13 @@
       </div>
    </div>
    <div class="item">
-      <div class=" header">開発者向け情報</div>
+      <div class=" header">コントリビューター向け情報</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         ディベロッパー向けクイックスタート
+         コントリビューター向けクイックスタート
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
-         ディベロッパーガイド
+         コントリビューター向けガイドライン
          </a>
       </div>
    </div>
