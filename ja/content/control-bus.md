@@ -91,7 +91,7 @@ query=send mail since:2000-01-01 until:2100-01-01
 結果として取得するジョブの属性をカンマ区切りで指定します。
 指定可能な属性は下記です。
 
-||Description|
+| |Description|
 |----|-----------|
 | execution |結果に実行履歴を付与します|
 | schedule  |結果にジョブの実行スケジュールを付与します|
@@ -110,7 +110,7 @@ with=execution,schedule
 複数のソートキーを指定する場合はそれをカンマ区切りで優先順に繋げてください。
 ソートキーとして指定できる属性は下記です。
 
-||Description|
+| | Description|
 |----|-----------|
 | name                    | ジョブ名 |
 | last-execution-started  | ジョブ最終実行の開始日時 |
