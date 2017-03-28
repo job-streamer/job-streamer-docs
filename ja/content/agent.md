@@ -3,13 +3,13 @@ status=publish
 ~~~~~~
 
 # Agent
-
-## Agentとは？
-Agentはノーデプロイ、ノーコンフィギュレーション。仮想イメージを立ち上げると瞬時にジョブ実行サーバとなります。
-job実行はすべてControl-busからAgentに対してAPIを呼び出し、実行します。
+## Agent とは？
+Agent は JobStreamer におけるジョブの実行エージェントであり、ノーデプロイ、ノーコンフィギュレーションな分散実行を可能にするための仕組みです。
+JobStreamer における job 実行はすべて Control-bus から Agent の API を呼び出すことで行います。
 
 ## Agentでできること
-設定やデプロイなしで実行環境をクラウド上に構築できるため、負荷量に応じて非常に簡単に実行環境を増減させることが出来ます。
+実行サーバにはこの実行エージェントを起動すること以外にデプロイ、設定は不要であり、エージェントを起動した瞬間に Control-bus と接続してジョブ実行が可能となります。
+Agent は単体の Java プロセスとして起動する他、 Docker コンテナとして起動することもできます。
 
 ## GitHub
 https://github.com/job-streamer/job-streamer-agent

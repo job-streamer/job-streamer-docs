@@ -5,6 +5,12 @@
    <div class="item">
       <div class="header">ガイド</div>
       <div class="menu">
+         <a class="item" href="${content.rootpath}get-started-quickly.html">
+         クイックスタート
+         </a>
+         <a class="item" href="${content.rootpath}auth.html">
+         認証認可
+         </a>
          <a class="item" href="${content.rootpath}deploy-batch-components.html">
          バッチコンポーネントのデプロイ
          </a>
@@ -23,9 +29,6 @@
          <a class="item" href="${content.rootpath}notificator-config.html">
          Notificatorの設定
          </a>
-         </a>
-         <a class="item" href="${content.rootpath}auth.html">
-         認証認可
          </a>
          <a class="item" href="${content.rootpath}import-export.html">
          インポート・エクスポート
@@ -56,7 +59,7 @@
       <div class=" header">開発者向け情報</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         REPLコマンド集
+         ディベロッパー向けクイックスタート
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
          ディベロッパーガイド

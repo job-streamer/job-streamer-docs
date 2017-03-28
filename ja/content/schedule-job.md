@@ -61,4 +61,3 @@ Quartz format を直接入力する場合は [cron expressions](http://www.quart
 ### 4. スケジュール登録
 Save ボタンでスケジュールを登録すると、ジョブの自動実行が始まります。
 カレンダーと cron 式両方に合致した日時に実行されます。
-

@@ -48,7 +48,7 @@ curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/i
 curl -XDELETE localhost:45102/user/test-user
 ```
 
-### API実行時の認証
+### API 実行時の認証
 control-bus の API を利用するためにも認証処理が必要となります。
 まず下記の通りログイン API を実行して認証トークンを取得します。
 
