@@ -5,9 +5,6 @@
    <div class="item">
       <div class="header">Guide</div>
       <div class="menu">
-         <a class="item" href="${content.rootpath}get-started-quickly.html">
-         Quick start
-         </a>
          <a class="item" href="${content.rootpath}auth.html">
          Authentication and authorization
          </a>
@@ -55,13 +52,13 @@
       </div>
    </div>
    <div class="item">
-      <div class=" header">For Developper</div>
+      <div class=" header">For contributers</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         Quick start for developer
+         Getting Started for contributers
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
-         Developer guide
+         Developer guide for contributers
          </a>
       </div>
    </div>

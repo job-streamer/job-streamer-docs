@@ -5,9 +5,6 @@
    <div class="item">
       <div class="header">ガイド</div>
       <div class="menu">
-         <a class="item" href="${content.rootpath}get-started-quickly.html">
-         クイックスタート
-         </a>
          <a class="item" href="${content.rootpath}auth.html">
          認証認可
          </a>
@@ -59,7 +56,7 @@
       <div class=" header">コントリビューター向け情報</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         コントリビューター向けクイックスタート
+         コントリビューター向け Getting Started
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
          コントリビューター向けガイドライン

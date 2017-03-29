@@ -4,7 +4,7 @@
     <div class="ui one column centered grid">
       <div class="column">
         <h1>JobStreamer</h1>
-        <img src="img/overview.png"/>
+        <img class="original-size" src="img/overview.png"/>
       </div>
     </div>
   </header>
@@ -12,12 +12,11 @@
     <div class="column">
         <h2 class="ui header">コンセプト</h2>
         <p>
-        JobStreamerは、JavaBatchの分散実行環境です。設定やデプロイなしで実行環境をクラウド上に構築できるため、負荷量に応じて非常に簡単に実行環境を増減させることが出来ます。
-
-        JavaBatchでは規格化されていないJobをスケジュール実行することも可能です。
-
-        Agentはノーデプロイ、ノーコンフィギュレーション。仮想イメージを立ち上げると瞬時にジョブ実行サーバとなります。
-        Management consoleはControl busのフロントエンドで、Control busの提供するAPIから取得した結果を表示する機能だけを持ちます。
+        JobStreamer は JavaBatch の分散実行環境です。JavaBatch に規格化されていない Job をスケジュール実行することも可能です。<br/>
+        <br/>
+        Control bus は JobStreamer の制御サーバです。 REST API を提供し、全ての処理を制御します。<br/>
+        Agent は JobStreamer の専用実行エージェントです。設定やデプロイなしで仮想イメージを立ち上げた瞬間にジョブ実行サーバとなるため、負荷量に応じて増減させることが簡単に出来ます。<br/>
+        Management Console は JobStreamer のフロントエンドであり、 Control bus 上の処理を呼び出したり取得結果を表示する機能を持ちます。<br/>
         </p>
     <div>
   </section>

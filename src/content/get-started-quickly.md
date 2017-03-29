@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-# Quick start
+# Getting Started
 ## Control bus
 1. Get [datomic-free](https://my.datomic.com/downloads/free)
 

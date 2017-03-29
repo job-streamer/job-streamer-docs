@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-# Quick start for contributers
+# Getting Started for contributers
 Developers of JobStreamer can develop it efficiently by using Clojure REPL.
 
 ## Start REPL

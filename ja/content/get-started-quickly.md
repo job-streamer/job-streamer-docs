@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-# クイックスタート
+# Getting Started
 
 ## Control bus
 1. [datomic-free](https://my.datomic.com/downloads/free) を取得

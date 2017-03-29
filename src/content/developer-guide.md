@@ -2,7 +2,7 @@ type=page
 status=publish
 ~~~~~~
 
-# JobStreamer developer guide
+# Developer guide for contributers
 
 ## Format policy
 
