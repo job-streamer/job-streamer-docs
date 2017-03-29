@@ -2,16 +2,33 @@ type=page
 status=publish
 ~~~~~~
 
-# Create a job
+# Create job
 
-1. Push the "new" button in job top page(http\://{IP address of server}:{console's port number(default 8080)}).
+## 1. Open the login page of job-streamer-console.
+http\://[IP address of the server]:[port number of Console(default: 8080)]
+
+## 2. Enter id/password of the login user and login.
+Built-in admin user is admin/password123
+
+## 3. Press the "New" button on the top page.
 
 ![image](img/new_job_button.png)
 
+## 4. Create a job.
+For example, we create a simple job that has only one step as following.
 
-2. Assemble job useing drag and drop like Scratch.
+![image](img/make-step.png)
+![image](img/make-batchlet.png)
+![image](img/select-batchlet-ref.png)
+![image](img/type-job-name.png)
 
-![image](img/new_job.png)
+* Set attributes.
+![image](img/set-attr.png)
+* Set properties.
+    * You can specify a job parameter here in the following format (EL: Expression Language).
+        \#{jobParameters['ParameterName']}
 
-You can use Batchlet and ItemReader/ItemWriter/ItemProcessor only deployed on control bus.
-When you wanna use your batch components,you must refer [deploy-batch-components](./get-started-developer.html).
+![image](img/set-properties.png)
+
+You can use only batch components (Batchlet/ItemReader/ItemWriter/ItemProcessor etc.) that was deployed to the Control-bus.
+If you want to use new batch components, please refer to [Deploy batch components](./deploy-batch-components.html).

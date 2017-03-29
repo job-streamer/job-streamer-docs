@@ -2,30 +2,29 @@ type=page
 status=publish
 ~~~~~~
 
-# Execute a job
+# Execute job
+## Execute job manually
+Press the play button for each job at the job list view (top page), then job execution starts.
 
-## Manual execution
-Push play button at job list view(top page),then you can manually execute.
+## Stop job Forcibly
+Press the stop button for each job at the job list view (top page), then job execution stops.
 
-## Forcibly stop execution
-Push stop button at job list view(top page),then you can stop job execution.
-
-## Restart
-If you made job be able to restart,you can restart falure/abandoned job.
+## Restart job
+If the job can be restarted (it means all batchlets making up the job implement javax.batch.api.AbstractBatchlet.stop), you can restart the job that was interrupted or failed from the Console.
 
 ![image](img/restart.png)
 
-
-If parameter is needed, Jobstreamer automatically analize and make input form,then you input value and push restart button
+## Specify parameter
+If you used Expression Language in the job Properties when you created the job, input parameter form is displayed when you execute or restart the job.
+Input each parameters and press Execute/Restart button, then the job starts with parametes.
 
 ![image](img/restart_dialog.png)
 
-## about executtion log
-
-You can confirm the execution log in console.
+## Refer to job execution log
+Press the start time link for each job at the job list view, then you can check the execution log.
 
 ![image](img/execute_log.png)
 
-## scheduled execution
+## Schedule job
 
-Please refer [schedule job](./schedule-job.html)
+Please refer to [Schedule job](./schedule-job.html).

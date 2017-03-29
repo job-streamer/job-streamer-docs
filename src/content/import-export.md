@@ -2,18 +2,18 @@ type=page
 status=publish
 ~~~~~~
 
-# インポート/エクスポート
-登録してあるジョブ・カレンダーをエクスポート/インポートすることができ、移行/復旧がスムーズに行えます。
-インポート/エクスポートは右上メニューから行うことができます。
-エクスポートしたファイルはednファイルとして保存されます。
+# Import and export
+You can import/export jobs and calendars. So you can migrate/restore then smoothly.
+Press Import/Export menu from the header right pull-down.
+Exported file is saved in the edn file format.
 
-## job のインポート/エクスポート
-job のインポート/エクスポートでは、 job の実行履歴以外のすべての情報を引き継ぐことができます。
+## Import/Export job
+You can take over all information except for the job execution history between import and export.
 
-## calendar のインポート/エクスポート
-calendar のインポート/エクスポートでは、 calendar のすべての情報を引き継ぐことができます。
+## Import/Export calendar
+You can take over all information about the calendar between import and export.
 
-## 注意事項
-* ジョブ・カレンダーのインポート時に同名のジョブ・カレンダーが存在した場合は警告なく上書きされます。
-* InternetExplorer10/11 でインポートを行った場合、インポートに使用したファイルを一時的に削除できなくなります。
-    * ブラウザ自体を閉じた後削除可能となりますので、インポートに使用したファイルを削除する場合は、一度ブラウザを閉じてから削除を行ってください。
+## Notes
+* If there are jobs/caledars with the same name between import and export, it will be overwritten without any warning.
+* If you import jobs/caledars on the InternetExplorer10/11, you can not temporarily delete the imported file.
+    * You will be able to it after close the browser.

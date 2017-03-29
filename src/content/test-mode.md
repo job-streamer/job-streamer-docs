@@ -2,29 +2,29 @@ type=page
 status=publish
 ~~~~~~
 
-# テストモード
-テストモードとは job 作成時に job の構造が正しいのかテストするための機能です。
+# Test mode
+Test mode is a function to test whether the job structure is correct or not when you create it.
 
-## 用途
-テストモードでは例えば以下のような不正な job を精査してくれます。
+## Use case
+For example, you can validate invalid jobs like following in the test mode.
 
-* step がループしている
-* step 名が重複している
+* Step is looping
+* Step names duplicate
 
-## 使用方法
-### 1. job 作成画面にてテスト実行ボタンを押下
+## How to use
+### 1. Press execution button in the job creation page.
 ![image](img/execute-test-mode.png)
 
-### 2. すべての step がモックに置き換えられ実行される
+### 2. All steps is replaced to the mock and executed.
 
-### 3. 成功した場合はプログレスバーが緑色になる
+### 3. Progress bar turns green when it succeeds.
 ![image](img/test-success.png)
 
-### 4. 失敗した場合はプログレスバーが赤色になり、エラーログが console に出力される
+### 4. Progress bar turns red and error logs is outputted in the console when it failed.
 ![image](img/fail-test.png)
 
 ## API
-### 1. 新規テスト実行
+### 1. Execute new test
 
 ```
 POST /test-executions
@@ -42,7 +42,7 @@ POST /test-executions
 
 |Name|Type|Description|
 |----|----|-----------|
-|bpmn|String|テスト実行したいbpmnファイル|
+|bpmn|String|BPMN file content you want to test|
 
 #### Response
 
@@ -50,7 +50,7 @@ POST /test-executions
 {:state-id 1}
 ```
 
-### 2. テスト実行状況取得
+### 2. Get test execution status
 
 ```
 GET /test-execution/:state-id
