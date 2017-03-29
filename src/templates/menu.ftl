@@ -1,4 +1,4 @@
-<div class="ui sidebar inverted vertical menu">
+<div class="ui vertical fluid tabular menu">
    <a class="item" href="${content.rootpath}get-started-quickly.html">
    Getting Started
    </a>
