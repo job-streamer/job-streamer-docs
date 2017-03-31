@@ -32,7 +32,7 @@ You can schedule a job execution by calendar and Quartz format (cron expressions
 ### 2. Easy creation of schedule.
 You can construc a quartz format interactively on the "Next" panel.
 
-#### 2.1. Select schedule pattern from Daily or Weekly, Montyly.
+#### 2.1. Select schedule pattern from Daily or Weekly, Monthly.
 
 ![image](img/select-pattern-of-schedule.png)
 

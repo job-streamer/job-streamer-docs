@@ -31,7 +31,7 @@ POST/PUT parameters correspond to end format and JSON format.
 
 ### Authentication
 All API calls need authentication.
-Please refer to [Authentification and authorization#Authentification in API execution](./auth.html#Authentification in API execution) about it.
+Please refer to [Authentification and authorization#Authentification in API execution](./auth.html#authentification-in-api-execution) about it.
 
 ### Create application
 

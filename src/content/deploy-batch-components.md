@@ -25,7 +25,7 @@ Example
 > It is necessary to write authentication information for Control-bus on pom.xml.
 > It is necessary that deploy resources and Control-bus exist in the same server.
 
-### Delopy from Console
+### Deploy from Console
 
 Example
 ==
