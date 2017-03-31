@@ -1,17 +1,18 @@
 type=page
 status=publish
 ~~~~~~
-#Console
 
-## What's Console?
-Management console is front-end of Control bus, it has function only display the result that got from Control-bus's API.
+# Management Console
+Management Console is front-end of the Control-bus.
+It can execute APIs provided by Control-bus and display the results.
+So it does not have more functions than Control-bus.
 
-## What's Console can do?
-- job/calendar make/modify/delete
-- manually job execute
-- measure agent usage rate.
-- import/export
-etc.
+## What Management Console can do
+- Create/Change/Delete job/calendar
+- Execute job manually
+- Measure use rate of agents
+- Import/Export job/calendar
+- etc.
 
-## GitHub Link
+## GitHub
 https://github.com/job-streamer/job-streamer-console

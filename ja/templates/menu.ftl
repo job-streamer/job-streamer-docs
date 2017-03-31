@@ -5,6 +5,9 @@
    <div class="item">
       <div class="header">ガイド</div>
       <div class="menu">
+         <a class="item" href="${content.rootpath}auth.html">
+         認証認可
+         </a>
          <a class="item" href="${content.rootpath}deploy-batch-components.html">
          バッチコンポーネントのデプロイ
          </a>
@@ -21,11 +24,8 @@
          ジョブの設定
          </a>
          <a class="item" href="${content.rootpath}notificator-config.html">
-         Notificatorの設定
+         通知サーバの設定
          </a>
-         </a>
-         <a class="item" href="${content.rootpath}auth.html">
-         認証認可
          </a>
          <a class="item" href="${content.rootpath}import-export.html">
          インポート・エクスポート
@@ -53,13 +53,13 @@
       </div>
    </div>
    <div class="item">
-      <div class=" header">開発者向け情報</div>
+      <div class=" header">コントリビューター向け情報</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         REPLコマンド集
+         コントリビューター向け Getting Started
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
-         ディベロッパーガイド
+         コントリビューター向けガイドライン
          </a>
       </div>
    </div>

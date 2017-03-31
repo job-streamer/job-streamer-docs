@@ -3,21 +3,22 @@ status=publish
 ~~~~~~
 
 # 通知サーバの設定
+通知サーバ (Notificator) の概要については [Notificator](./notificator.html) を参照してください。
 
-## ednファイル
-ednファイルを用いてルールの設定を行います。
-ednファイルにはコントロールバスからあるキーが送られた時に動作を定義します。
-ednファイルはNotificator起動時の第一引数として設定します。
+## 設定ファイル
+edn 形式のファイルにより設定をします。
+設定ファイルにはコントロールバスからあるキーが送られた時の動作を定義します。
+Notificator 起動時の第一引数として当ファイルのパスを渡すことで設定を反映します。（後述）
 
-例 :成功メールのjobを作成する場合
+### 例1: 成功メールの job を作成する場合
 
     {
       :send-success-email {:uri "http://localhost:45102/default/job/success-mail/executions?Exchange.CONTENT_TYPE=application/edn"}
     }
 
-この設定では:send-success-emailのキーが送られた時"http\://localhost:45102/default/job/success-mail/executions?Exchange.CONTENT\_TYPE=application/edn"にPOSTリクエストを送るので、"success-mail"というjobが実行されます。
+この設定ではコントロールバスより :send-success-email のキーが送られた時 "http\://localhost:45102/default/job/success-mail/executions?Exchange.CONTENT\_TYPE=application/edn" に POST リクエストを送り、"success-mail" というジョブを実行します。
 
-例：成功したときsmtpリクエストを送りメール送信する場合
+### 例2: 成功したとき smtp リクエストを送りメール送信する場合
 
     {
       :send-success-email {
@@ -26,27 +27,27 @@ ednファイルはNotificator起動時の第一引数として設定します。
       }
     }
 
-この設定では:send-success-emailのキーが送られた時smtpサーバーに直接メール送信のリクエストが送られます。
+この設定では :send-success-email のキーが送られた時 smtp サーバーに直接メール送信のリクエストを送ります。
 
 ### ednファイルのフォーマット
 ednファイルは以下の形で記述してください。
 
-    ｛
-      :key1 {:uri     "xxx"
-             :to      "yyy"
-             :message "zzz"}
-      :key2{...}
-      ...
-      :keyx{...}}
+    {:key1 {:uri     "xxx"
+            :to      "yyy"
+            :message "zzz"}
+     :key2 {...}
+     ...
+     :keyx{...}}
 
-:uri - Apache CamelのRouteBuilder#fromに相当する。キーが送られてきたときの動作を記述する。
-       設定できる動作は[http://camel.apache.org/components.html](http://camel.apache.org/components.html)を参照
-:to  - Apache CamelのRouteBuilder#toに相当する。
-:message - Apache Camelのsetbodyに相当する。
+* :uri - キーが送られてきたときの動作を記述する
+    * Apache CamelのRouteBuilder#from に相当
+    * 設定できる動作は[http://camel.apache.org/components.html](http://camel.apache.org/components.html)を参照
+* :to  - Apache Camel の RouteBuilder#to に相当
+* :message - Apache Camel の setbodyに相当
 
 ## Handlebars（テンプレート機能）を使う
-Handlebarsを使うことでメッセージ等のテンプレートを作成することができます。
-例えば、以下のようなhbsファイル(success.hbs)を作成します。
+Handlebars を使うことでメッセージ等のテンプレートを作成することができます。
+例えば、以下のような hbs ファイル(success.hbs)を作成します。
 
     Hello, your batch is {{exit-status}}!
     end time is {{end-time}}
@@ -61,7 +62,7 @@ hbsファイル内では以下のキーが指定できます。
 |batch-status|batch status|
 |exit-status|exit status|
 
-ednファイルでは以下のように"message-template" というキーでhbsファイルのファイル名を指定します。
+ednファイルでは以下のように "message-template" というキーで hbs ファイルのファイル名(拡張子なし)を指定します。
 
     {
       :send-success-email {
@@ -74,11 +75,10 @@ ednファイルでは以下のように"message-template" というキーでhbs�
 
     Hello, your batch is COMPLETED!end time is Sat Sep 17 01:09:29 JST 2016
 
-## notificatorの起動
+## Notificator の起動
 以下のように起動します。
 
     bin/notificator [edn file] [hbs file dir]
 
-hbsファイルを複数用いる場合は同一ディレクトリ内に置いてください。
-hbsファイルを用いない場合第二引数は省略可能です。
-
+hbs ファイルを複数用いる場合は同一ディレクトリ内に置いてください。
+hbs ファイルを用いない場合第二引数は省略可能です。
