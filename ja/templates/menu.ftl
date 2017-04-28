@@ -33,6 +33,9 @@
          <a class="item" href="${content.rootpath}test-mode.html">
          テストモード
          </a>
+         <a class="item" href="${content.rootpath}healthcheck.html">
+         死活監視
+         </a>
       </div>
    </div>
    <div class="item">
