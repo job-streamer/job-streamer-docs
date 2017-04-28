@@ -32,6 +32,9 @@
          <a class="item" href="${content.rootpath}test-mode.html">
          Test mode
          </a>
+         <a class="item" href="${content.rootpath}healthcheck.html">
+         Healthcheck
+         </a>
       </div>
    </div>
    <div class="item">
