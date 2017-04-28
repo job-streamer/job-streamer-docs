@@ -8,6 +8,15 @@ JobStreamer supports healthcheck.
 Each components has /healthcheck endpoint and they return HTTP Code 200 OK to GET request if service is available.
 They return HTTP Code 503 Service Unavailable if service is unavailable.
 
+This function is added following versions.
+
+| component                | version |
+| ------------------------ | ------- |
+| job-streamer-control-bus | |
+| job-streamer-console     | |
+| job-streamer-agent       | |
+| job-streamer-notificator | |
+
 ## control-bus
 
 ```
