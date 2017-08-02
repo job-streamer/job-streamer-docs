@@ -66,3 +66,40 @@ curl -XPOST localhost:45102/auth -H "Content-Type: application/edn" -d '{:user/i
 curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-3023-4a6a-89fb-de983f768c4d' http://localhost:45102/default/jobs
 {:results [...]}
 ```
+
+## OAuth2.0認証
+
+JobStreamerでは認証方式として上記の仕組みの他にOAuth2.0を利用できます。
+OAuth2.0による認証ではユーザはoperatorの権限を持ったguestユーザとしてログインされます。
+
+### 利用方法
+
+OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定ファイルが必要になります
+
+> resources/job-streamer-control-bus/config.edn
+
+```edn
+{:auth {:console-url "http://xxx.yyy.z.ww:3000"
+        :control-bus-url "http://xxx.yyy.z.ww:45102"
+        :oauth-providers {"yahoo" {:name "Yahoo"                              ;; 必須。ボタンの表示名
+                                   :class-name "yahoo"                        ;; オプション。ボタンのクラス名
+                                   :domain "https://auth.login.yahoo.co.jp"   ;; 必須。OAuth2.0 認証サーバのドメイン
+                                   :client-id "xxxx"                          ;; 必須。OAuth2.0 のクライアントID
+                                   :client-secret "xxxx"                      ;; 必須。OAuth2.0 のクライアントシークレット
+                                   :scope "openid"                            ;; オプション。OAuth2.0 のスコープ。
+                                   :auth-endpoint "yconnect/v2/authorization" ;; 必須。OAuth2.0 の認証エンドポイント。
+                                   :token-endpoint "yconnect/v2/token"}       ;; 必須。OAuth2.0 のトークンエンドポイント。
+                          "github" {:name "Github"
+                                    :class-name "github"
+                                    :domain "https://github.com"
+                                    :client-id "xxxx"
+                                    :client-secret "xxxx"
+                                    :auth-endpoint "login/oauth/authorize"
+                                    :token-endpoint "login/oauth/access_token"}}}}
+```
+
+また利用するOAuth2.0 認証サーバでの設定が必要になります。
+
+動作確認をしたOAuth2.0 認証サーバを以下に示します。
+* Github
+* Yahoo! ID連携
