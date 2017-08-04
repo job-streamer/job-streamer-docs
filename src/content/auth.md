@@ -102,4 +102,4 @@ You must configure in OAuth2.0 authorization server.
 
 Checked available OAuth2.0 authorization servers.
 * Github
-* Yahoo! ID連携
+* Yahoo! ID connect
