@@ -67,28 +67,28 @@ curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-
 {:results [...]}
 ```
 
-## OAuth2.0認証
+## OAuth2.0 Authentication
 
-JobStreamerでは認証方式として上記の仕組みの他にOAuth2.0を利用できます。
-OAuth2.0による認証ではユーザはoperatorの権限を持ったguestユーザとしてログインされます。
+OAuth2.0 is available for authentication when you use JobStreamer.
+If you use OAuth2.0, you login as a "guest" user with operator role.
 
-### 利用方法
+### How to use
 
-OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定ファイルが必要になります。
+You locate configuration file on class path.
 
 > resources/job-streamer-control-bus/config.edn
 
 ```edn
 {:auth {:console-url "http://xxx.yyy.z.ww:3000"
         :control-bus-url "http://xxx.yyy.z.ww:45102"
-        :oauth-providers {"yahoo" {:name "Yahoo"                              ;; 必須。ボタンの表示名
-                                   :class-name "yahoo"                        ;; オプション。ボタンのクラス名
-                                   :domain "https://auth.login.yahoo.co.jp"   ;; 必須。OAuth2.0 認証サーバのドメイン
-                                   :client-id "xxxx"                          ;; 必須。OAuth2.0 のクライアントID
-                                   :client-secret "xxxx"                      ;; 必須。OAuth2.0 のクライアントシークレット
-                                   :scope "openid"                            ;; オプション。OAuth2.0 のスコープ。
-                                   :auth-endpoint "yconnect/v2/authorization" ;; 必須。OAuth2.0 の認証エンドポイント。
-                                   :token-endpoint "yconnect/v2/token"}       ;; 必須。OAuth2.0 のトークンエンドポイント。
+        :oauth-providers {"yahoo" {:name "Yahoo"                              ;; Required. Name in button
+                                   :class-name "yahoo"                        ;; Option. Class name in button
+                                   :domain "https://auth.login.yahoo.co.jp"   ;; Required. Authorization server domain in OAuth2.0
+                                   :client-id "xxxx"                          ;; Required. Client id in OAuth2.0
+                                   :client-secret "xxxx"                      ;; Required. Client secret in OAuth2.0
+                                   :scope "openid"                            ;; Option. Scope in OAuth2.0
+                                   :auth-endpoint "yconnect/v2/authorization" ;; Required. Authorization endpoint in OAuth2.0
+                                   :token-endpoint "yconnect/v2/token"}       ;; Required. Token endpoint in OAuth2.0
                           "github" {:name "Github"
                                     :class-name "github"
                                     :domain "https://github.com"
@@ -98,8 +98,8 @@ OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定フ�
                                     :token-endpoint "login/oauth/access_token"}}}}
 ```
 
-また利用するOAuth2.0 認証サーバでの設定が必要になります。
+You must configure in OAuth2.0 authorization server.
 
-動作確認をしたOAuth2.0 認証サーバを以下に示します。
+Checked available OAuth2.0 authorization servers.
 * Github
 * Yahoo! ID連携

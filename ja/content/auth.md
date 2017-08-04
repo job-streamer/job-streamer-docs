@@ -74,7 +74,7 @@ OAuth2.0による認証ではユーザはoperatorの権限を持ったguestユ�
 
 ### 利用方法
 
-OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定ファイルが必要になります
+OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定ファイルが必要になります。
 
 > resources/job-streamer-control-bus/config.edn
 
@@ -83,11 +83,11 @@ OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定フ�
         :control-bus-url "http://xxx.yyy.z.ww:45102"
         :oauth-providers {"yahoo" {:name "Yahoo"                              ;; 必須。ボタンの表示名
                                    :class-name "yahoo"                        ;; オプション。ボタンのクラス名
-                                   :domain "https://auth.login.yahoo.co.jp"   ;; 必須。OAuth2.0 認証サーバのドメイン
+                                   :domain "https://auth.login.yahoo.co.jp"   ;; 必須。OAuth2.0 認可サーバのドメイン
                                    :client-id "xxxx"                          ;; 必須。OAuth2.0 のクライアントID
                                    :client-secret "xxxx"                      ;; 必須。OAuth2.0 のクライアントシークレット
                                    :scope "openid"                            ;; オプション。OAuth2.0 のスコープ。
-                                   :auth-endpoint "yconnect/v2/authorization" ;; 必須。OAuth2.0 の認証エンドポイント。
+                                   :auth-endpoint "yconnect/v2/authorization" ;; 必須。OAuth2.0 の認可エンドポイント。
                                    :token-endpoint "yconnect/v2/token"}       ;; 必須。OAuth2.0 のトークンエンドポイント。
                           "github" {:name "Github"
                                     :class-name "github"
