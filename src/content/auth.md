@@ -69,12 +69,12 @@ curl -XGET -H 'Content-Type: application/edn' -H 'Authorization: Token 5f080f9c-
 
 ## OAuth2.0 Authentication
 
-OAuth2.0 is available for authentication when you use JobStreamer.
-If you use OAuth2.0, you login as a "guest" user with operator role.
+You can use OAuth2.0 as authentication in JobStreamer.
+If you login to JobStreamer by using OAuth2.0, You will get the "operator" role.
 
 ### How to use
 
-You locate configuration file on class path.
+To Use OAuth2.0, You have to locate a configuration file on your class path.
 
 > resources/job-streamer-control-bus/config.edn
 
@@ -98,8 +98,8 @@ You locate configuration file on class path.
                                     :token-endpoint "login/oauth/access_token"}}}}
 ```
 
-You must configure in OAuth2.0 authorization server.
+And you have to configure the OAuth2.0 authorization server.
 
-Checked available OAuth2.0 authorization servers.
+We confirmed that it works with the following OAuth2.0 services.
 * Github
 * Yahoo! ID connect
