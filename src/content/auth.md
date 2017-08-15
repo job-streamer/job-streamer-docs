@@ -43,7 +43,7 @@ Please execute it like following example.
 
 ```sh
 # Create login user named "test-user" with "operator" authority and password "password123"
-curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :roll "operator"}'
+curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :role "operator"}'
 # Delete login user whose id is "test-user".
 curl -XDELETE localhost:45102/user/test-user
 ```
@@ -76,9 +76,9 @@ If you login to JobStreamer by using OAuth2.0, You will get the "operator" role.
 
 To Use OAuth2.0, You have to locate a configuration file on your class path.
 
-> resources/job-streamer-control-bus/config.edn
-
 ```edn
+;; resources/job-streamer-control-bus/config.edn
+
 {:auth {:console-url "http://xxx.yyy.z.ww:3000"
         :control-bus-url "http://xxx.yyy.z.ww:45102"
         :oauth-providers {"yahoo" {:name "Yahoo"                              ;; Required. Name in button

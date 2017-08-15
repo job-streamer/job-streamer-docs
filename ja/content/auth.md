@@ -43,7 +43,7 @@ Console 上で権限のない操作を行った場合にはエラーメッセー
 
 ```sh
 # "operator" 権限を持った、"test-user" というログインユーザを "password123" というパスワードで作成
-curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :roll "operator"}'
+curl -XPOST localhost:45102/user -H 'Content-Type: application/edn' -d '{:user/id "test-user" :user/password "password123" :role "operator"}'
 # "test-user" という ID のログインユーザを削除
 curl -XDELETE localhost:45102/user/test-user
 ```
@@ -76,9 +76,9 @@ OAuth2.0による認証ではユーザはoperatorの権限を持ったguestユ�
 
 OAuth2.0を利用するためにはcontrol-busのクラスパス上に設定ファイルが必要になります。
 
-> resources/job-streamer-control-bus/config.edn
-
 ```edn
+;; resources/job-streamer-control-bus/config.edn
+
 {:auth {:console-url "http://xxx.yyy.z.ww:3000"
         :control-bus-url "http://xxx.yyy.z.ww:45102"
         :oauth-providers {"yahoo" {:name "Yahoo"                              ;; 必須。ボタンの表示名
