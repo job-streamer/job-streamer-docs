@@ -3,7 +3,7 @@ status=publish
 ~~~~~~
 
 # Management Console
-Management Console is front-end of the Control-bus.
+Management Console is a front-end of the Control-bus.
 It can execute APIs provided by Control-bus and display the results.
 So it does not have more functions than Control-bus.
 

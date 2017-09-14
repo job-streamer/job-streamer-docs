@@ -106,7 +106,7 @@ with=execution,schedule
 
 ##### 3. sort-by
 Specify sort key.
-Specify key name and asc/desc as a set of collon sperated value.
+Specify key name and asc/desc as a set of colon separated value.
 If you specify multiple sort keys, join them in order priority with comma separators.
 You can specify following sort keys.
 

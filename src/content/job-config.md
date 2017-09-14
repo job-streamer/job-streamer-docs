@@ -4,11 +4,11 @@ status=publish
 
 # Job config
 ## Exclusive execution
-There are cases where it is incovinient for a job to be executed simultaneously.
+There are cases where it is incovenient for a job to be executed simultaneously.
 In order not to be execute a job simultaneously, 
-turn on "Exclusive execution" in the "Shedule settings" panel of the "Settings" tab of the job details page.
+turn on "Exclusive execution" in the "Schedule settings" panel of the "Settings" tab of the job details page.
 \# Notice that if you turn on this setting, multiple executions will not be fired even if they are scheduled.
-\# A function, that dispatch a job again as soon as previous job is over, has not been inplemented.
+\# A function, that dispatch a job again as soon as previous job is over, has not been implemented.
 
 ## Monitor job execution
 You can configure job execution monitoring in the "Settings" tab.
@@ -22,12 +22,12 @@ If you monitor exit status, enter the exit status used for condition.
 Enter the notification key set in the notification server in the "Notification".
 
 ### 2. Send mail if a job is being executed for more than a certain period of time.
-Set this in the "Shedule settings" panel.
+Set this in the "Schedule settings" panel.
 Enter "a certain period of time" in the "Execution constraints" form, and select "Alert" in the pull-down.
 Enter the notification key set in the notification server in the "Notification".
 
 ### 3. Stop job if it is being executed for more than a certain period of time.
-Set this in the "Shedule settings" panel.
+Set this in the "Schedule settings" panel.
 Enter "a certain period of time" in the "Execution constraints" form, and select "Stop" in the pull-down.
 Target job needs to be restartable (it means all batchlets making up the job implement javax.batch.api.AbstractBatchlet.stop).
 

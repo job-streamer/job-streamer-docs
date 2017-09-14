@@ -2,11 +2,11 @@ type=page
 status=publish
 ~~~~~~
 
-# Getting Started for contributers
+# Getting Started for contributors
 Developers of JobStreamer can develop it efficiently by using Clojure REPL.
 
 ## Start REPL
-All components included in JobStreamer can be run and developped in the REPL.
+All components included in JobStreamer can be run and developed in the REPL.
 You need install jdk and [Leiningen](https://leiningen.org/) to run REPL.
 
 ### Example: Control-bus
@@ -23,7 +23,7 @@ You need install jdk and [Leiningen](https://leiningen.org/) to run REPL.
 The same applies to other components.
 
 ## Common commands
-You can enter Clojre code directly to execute and improve efficiency of development with following commands.
+You can enter Clojure code directly to execute and improve efficiency of development with following commands.
 
 ### (dev)
 Switch to the developer mode and activate following commands.
