@@ -55,13 +55,13 @@
       </div>
    </div>
    <div class="item">
-      <div class=" header">For contributers</div>
+      <div class=" header">For contributors</div>
       <div class="menu">
          <a class="item" href="${content.rootpath}get-started-developer.html">
-         Getting Started for contributers
+         Getting Started for contributors
          </a>
          <a class="item" href="${content.rootpath}developer-guide.html">
-         Developer guide for contributers
+         Developer guide for contributors
          </a>
       </div>
    </div>

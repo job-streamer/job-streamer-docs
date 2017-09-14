@@ -16,7 +16,7 @@ If the job can be restarted (it means all batchlets making up the job implement 
 
 ## Specify parameter
 If you used Expression Language in the job Properties when you created the job, input parameter form is displayed when you execute or restart the job.
-Input each parameters and press Execute/Restart button, then the job starts with parametes.
+Input each parameters and press Execute/Restart button, then the job starts with parameters.
 
 ![image](img/restart_dialog.png)
 

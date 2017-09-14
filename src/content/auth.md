@@ -9,7 +9,7 @@ Authentification is required when you use JobStreamer.
 If you open any URL of Console without authentification, you will be redirected to login page.
 http://localhost:3000/login
 
-Login with following default ID and Passwod.
+Login with following default ID and Password.
 
 * ID : admin
 * Password : password123

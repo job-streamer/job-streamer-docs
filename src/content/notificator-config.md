@@ -6,7 +6,7 @@ status=publish
 Please refer to [Notificator](./notificator.html) about the Notificator.
 
 ## Setting file
-Setting file have to be edn format.
+Setting file has to be as the edn format.
 It defines the behavior when a certain key is sent from the Control-bus.
 This setting will be reflected when this file is specified as the first argument of the Notificator (To be described later).
 

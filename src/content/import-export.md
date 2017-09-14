@@ -14,6 +14,6 @@ You can take over all information except for the job execution history between i
 You can take over all information about the calendar between import and export.
 
 ## Notes
-* If there are jobs/caledars with the same name between import and export, it will be overwritten without any warning.
-* If you import jobs/caledars on the InternetExplorer10/11, you can not temporarily delete the imported file.
-    * You will be able to it after close the browser.
+* If there are jobs/calendars with the same name between import and export, it will be overwritten without any warning.
+* If you import jobs/calendars on the InternetExplorer10/11, you can not temporarily delete the imported file.
+    * You will be able to delete it after close the browser.
